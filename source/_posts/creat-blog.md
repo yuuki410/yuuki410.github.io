@@ -9,7 +9,7 @@ tags:
 npm install -g hexo
 hexo init
 npm install hexo-theme-next --save
-npm install git --save
+npm install hexo-deployer-git --save
 ```
 
 ## 管理Git版本控制
@@ -31,7 +31,7 @@ subtitle: 'Const Awesome'
 description: 'Tachibana Yuuki 的 博客'
 keywords: 
 author: Tachibana Yuuki
-language: zh-VN
+language: zh-CN
 timezone: ''
 
 # URL
