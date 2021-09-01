@@ -5,11 +5,11 @@
 # Site
 title: Tachibana Yuuki has Super Cow Power
 subtitle: 'Const Awesome'
-description: 'Tachibana Yuuki 的 博客'
+description: '笔记，高度删减版本'
 keywords: 
 author: Tachibana Yuuki
 language: zh-CN
-timezone: ''
+timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -105,3 +105,10 @@ deploy:
   type: git
   repo: git@github.com:yuuki410/yuuki410.github.io.git
   branch: gh-pages
+
+# Search Pluging
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: html
