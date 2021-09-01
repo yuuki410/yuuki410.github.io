@@ -154,7 +154,7 @@ social:
   #YouTube: https://youtube.com/yourname || fab fa-youtube
   #Instagram: https://instagram.com/yourname || fab fa-instagram
   #Skype: skype:yourname?call|chat || fab fa-skype
-  SCPWiki-CN: https://scp-wiki-cn.wikidot.com/tachibana-yuuki-s-personnel-file
+  SCPWiki-CN: http://scp-wiki-cn.wikidot.com/tachibana-yuuki-s-personnel-file
 
 social_icons:
   enable: true
