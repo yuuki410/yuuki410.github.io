@@ -1,7 +1,17 @@
 ---
 title: 利用 Hexo Action 自动部署博客
 date: 2021-09-02 02:37:41
+categories: 
+#- diary
+- guide
+#- note
+#- source
+#- tool
 tags:
+- Hexo
+- GitHub
+- GitHub Action
+- 持续集成
 ---
 Hexo 好看，但是缺点是每次写完一篇新的博客就要敲一行 `hexo d` 推送一次，到了手机上则是直接废掉。
 

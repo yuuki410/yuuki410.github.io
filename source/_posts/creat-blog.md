@@ -1,7 +1,19 @@
 ---
 title: 新建博客
 date: 2021-08-20 19:59:52
+categories: 
+#- diary
+- guide
+#- note
+#- source
+#- tool
 tags:
+- Hexo
+- Node.js
+- Git
+- NexT Theme
+- GitHub
+- GitHub Pages
 ---
 
 ## 预处理
@@ -18,7 +30,7 @@ git init
 git remote add origin git@github.com:yuuki410/yuuki410.github.io.git # 注意，需要预先在Github上新建仓库
 git branch -M master
 ```
-
+<!-- more -->
 ## 配置Hexo与NexT-theme
 ```yaml ~/yuuki410.github.io/_config.yml
 # Hexo Configuration
