@@ -2,7 +2,7 @@
 title: 关于VSCode字符编码
 date: 2021-09-05 20:26:50
 categories:
-- help
+- guide
 - Windows
 tags: 
 - VSCode
