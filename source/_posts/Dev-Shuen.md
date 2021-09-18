@@ -11,6 +11,11 @@ tags:
 - pnpm
 ---
 
+> 21年9月18日更新
+鑿海新增了一個Vite分支
+然後也寫好了Readme文件
+所以這篇就當回憶和樂子來看吧
+
 记一下折腾[Shuen](https://github.com/Zokhoi/wikidot-autosaver)的经历，顺带方便以后遇到问题快速解决。
 
 ## 预准备
