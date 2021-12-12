@@ -2,7 +2,7 @@
 title: Raspi VNC连接分辨率调整
 date: 2021-12-11 18:42:35
 categories:
-- Raspi
+- guide
 tags:
 - Raspberry Pi
 - VNC
