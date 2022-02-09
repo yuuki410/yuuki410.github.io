@@ -615,7 +615,7 @@ livere_uid: # <your_uid>
 gitalk:
   enable: true
   github_id: yuuki410 # GitHub repo owner
-  repo: yuuki410.github.io # Repository name to store issues
+  repo: blog.yuuki.eu.org # Repository name to store issues
   client_id: d106da829da368c5336b # GitHub Application Client ID
   client_secret: 341a72bbcdf34ff58fe91c146a202a8e9bcc9e2f # GitHub Application Client Secret
   admin_user: yuuki410 # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
@@ -625,7 +625,7 @@ gitalk:
   # Gitalk's display language depends on user's browser or system environment
   # If you want everyone visiting your site to see a uniform language, you can set a force language value
   # Available values: en | es-ES | fr | ru | zh-CN | zh-TW
-  language: zh-TW
+  language: zh-CN
 
 # Utterances
 # For more information: https://utteranc.es
