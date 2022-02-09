@@ -6,6 +6,8 @@ categories:
 tags:
 - Raspberry Pi
 - NAT
+- Cloudflare
+- Cloudflare Tunnel
 ---
 
 首先选择你要使用的NAT服务商：

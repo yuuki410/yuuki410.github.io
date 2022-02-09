@@ -5,7 +5,7 @@ categories:
 - guide
 tags:
 - Gnome
-- 快捷键
+- Shortcut
 ---
 
 由于Gnome的`Ctrl-Alt-Down/Up`快捷键和Discord冲突，使用体验很糟糕。
