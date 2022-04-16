@@ -4,8 +4,8 @@
 
 # Site
 title: ∄
-subtitle: THERE DOES NOT EXIST
-description: My own note, clean and incomplete.
+subtitle: Tachibana Yuuki's Blog
+description: Nothing here.
 keywords: 'TachibanaYuuki yuuki410'
 author: Tachibana Yuuki
 language: zh-CN
@@ -13,7 +13,7 @@ timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://yuuki410.github.io
+url: https://blog.yuuki.eu.org
 permalink: :category/:title/
 permalink_defaults:
 pretty_urls:

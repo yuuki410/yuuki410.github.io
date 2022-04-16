@@ -77,7 +77,14 @@ creative_commons:
 open_graph:
   enable: true
   # Add pairs each line to customize 
-  options: ''
+  options:
+    #twitter_card: <twitter:card>
+    #twitter_id: <twitter:creator>
+    #twitter_site: <twitter:site>
+    #twitter_image: <twitter:image>
+    #google_plus: <g+:profile_link>
+    #fb_admins: <fb:admin_id>
+    #fb_app_id: <fb:app_id>
 
 
 # ---------------------------------------------------------------
@@ -615,7 +622,7 @@ livere_uid: # <your_uid>
 gitalk:
   enable: true
   github_id: yuuki410 # GitHub repo owner
-  repo: blog.yuuki.eu.org # Repository name to store issues
+  repo: yuuki410.github.io # Repository name to store issues
   client_id: d106da829da368c5336b # GitHub Application Client ID
   client_secret: 341a72bbcdf34ff58fe91c146a202a8e9bcc9e2f # GitHub Application Client Secret
   admin_user: yuuki410 # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
@@ -893,3 +900,4 @@ vendors:
 css: css
 js: js
 images: images
+
