@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.0.0">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
@@ -16,20 +15,21 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"yuuki410.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.9.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="事先声明：本教程的作者不提供任何担保也不承担任何附带责任，若你询问我任何与本教程相关的问题，我可以不回复、不作出正确回复、不提供相关资源。 如果你有足够的时间来折腾这些的话，你可以继续看下去，本教程只需要你拥有：  充裕的时间 网络连接 电力供应 电子邮箱 一块Raspberry Pi 4B及其配件（Micro SD卡，电源）  当你准备好后，请接着往下阅读。">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.yuuki.eu.org","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":{"gitalk":{"order":-2}},"activeClass":"gitalk"},"stickytabs":true,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="事先声明：本教程的作者不提供任何担保也不承担任何附带责任，若你询问我任何与本教程相关的问题，我可以不回复、不作出正确回复、不提供相关资源。 如果你有足够的时间来折腾这些的话，你可以继续看下去，本教程只需要你拥有：  充裕的时间 网络连接 电力供应 电子邮箱 一块Raspberry Pi 4B及其配件（Micro SD卡，电源）  当你准备好后，请接着往下阅读。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用树莓派4B搭建网站">
-<meta property="og:url" content="https://yuuki410.github.io/guide/Setup-a-website-with-Raspberry-Pi-4B/">
+<meta property="og:url" content="https://blog.yuuki.eu.org/guide/Setup-a-website-with-Raspberry-Pi-4B/">
 <meta property="og:site_name" content="∄">
 <meta property="og:description" content="事先声明：本教程的作者不提供任何担保也不承担任何附带责任，若你询问我任何与本教程相关的问题，我可以不回复、不作出正确回复、不提供相关资源。 如果你有足够的时间来折腾这些的话，你可以继续看下去，本教程只需要你拥有：  充裕的时间 网络连接 电力供应 电子邮箱 一块Raspberry Pi 4B及其配件（Micro SD卡，电源）  当你准备好后，请接着往下阅读。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://dns.he.net/include/images/pencil.png">
 <meta property="article:published_time" content="2022-02-09T08:41:15.000Z">
-<meta property="article:modified_time" content="2022-02-09T11:48:35.238Z">
+<meta property="article:modified_time" content="2022-04-16T10:03:10.335Z">
 <meta property="article:author" content="Tachibana Yuuki">
 <meta property="article:tag" content="Raspberry Pi">
 <meta property="article:tag" content="NAT">
@@ -43,11 +43,11 @@
 <meta name="twitter:image" content="https://dns.he.net/include/images/pencil.png">
 
 
-<link rel="canonical" href="https://yuuki410.github.io/guide/Setup-a-website-with-Raspberry-Pi-4B/">
+<link rel="canonical" href="https://blog.yuuki.eu.org/guide/Setup-a-website-with-Raspberry-Pi-4B/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yuuki410.github.io/guide/Setup-a-website-with-Raspberry-Pi-4B/","path":"guide/Setup-a-website-with-Raspberry-Pi-4B/","title":"用树莓派4B搭建网站"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.yuuki.eu.org/guide/Setup-a-website-with-Raspberry-Pi-4B/","path":"guide/Setup-a-website-with-Raspberry-Pi-4B/","title":"用树莓派4B搭建网站"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>用树莓派4B搭建网站 | ∄</title>
@@ -56,6 +56,7 @@
 
 
   <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "642f844c54ed4fd682efb304c427024d"}'></script>
+
 
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
@@ -83,7 +84,7 @@
       <p class="site-title">∄</p>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">THERE DOES NOT EXIST</p>
+      <p class="site-subtitle" itemprop="description">Tachibana Yuuki's Blog</p>
   </div>
 
   <div class="site-nav-right">
@@ -96,12 +97,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
-        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -165,7 +161,7 @@
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Tachibana Yuuki</p>
-  <div class="site-description" itemprop="description">My own note, clean and incomplete.</div>
+  <div class="site-description" itemprop="description">Nothing here.</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
@@ -237,16 +233,21 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yuuki410.github.io/guide/Setup-a-website-with-Raspberry-Pi-4B/">
+    <link itemprop="mainEntityOfPage" href="https://blog.yuuki.eu.org/guide/Setup-a-website-with-Raspberry-Pi-4B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="Tachibana Yuuki">
-      <meta itemprop="description" content="My own note, clean and incomplete.">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="∄">
+      <meta itemprop="description" content="Nothing here.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="用树莓派4B搭建网站 | ∄">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -260,9 +261,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-02-09 16:41:15 / 修改时间：19:48:35" itemprop="dateCreated datePublished" datetime="2022-02-09T16:41:15+08:00">2022-02-09</time>
+      <time title="创建时间：2022-02-09 16:41:15" itemprop="dateCreated datePublished" datetime="2022-02-09T16:41:15+08:00">2022-02-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-16 18:03:10" itemprop="dateModified" datetime="2022-04-16T18:03:10+08:00">2022-04-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -362,7 +369,7 @@
 <p>这里我们选择Cloudflare Tunnel。</p>
 <p>安装其客户端可参考<a target="_blank" rel="noopener" href="https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/installation">https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/installation</a>与<a target="_blank" rel="noopener" href="https://pkg.cloudflare.com/#ubuntu-title">https://pkg.cloudflare.com/#ubuntu-title</a>的教程（英文）。</p>
 <p>通过ssh连接上树莓派，执行命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/ focal main&#x27;</span> |</span><br><span class="line">sudo tee /etc/apt/sources.list.d/cloudflare-main.list</span><br><span class="line">sudo curl https://pkg.cloudflare.com/cloudflare-main.gpg -o /usr/share/keyrings/cloudflare-main.gpg </span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install cloudflared</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/ focal main&#x27;</span> |</span><br><span class="line">sudo <span class="built_in">tee</span> /etc/apt/sources.list.d/cloudflare-main.list</span><br><span class="line">sudo curl https://pkg.cloudflare.com/cloudflare-main.gpg -o /usr/share/keyrings/cloudflare-main.gpg </span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install cloudflared</span><br></pre></td></tr></table></figure>
 
 <p>接着执行以下命令，授权Cloudflared访问你的域名：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared tunnel login</span><br></pre></td></tr></table></figure>
@@ -372,7 +379,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared tunnel create &lt;隧道名称&gt;</span><br></pre></td></tr></table></figure>
 <p>隧道名称可以填入你能记住的名字，此处示例使用的是：<code>yuuki410</code>。<br>执行完成后输出的信息请记录下来。</p>
 <p>创建一个配置文件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.cloudflared</span><br><span class="line">touch config.yml</span><br><span class="line">name config.yml</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.cloudflared</span><br><span class="line"><span class="built_in">touch</span> config.yml</span><br><span class="line">name config.yml</span><br></pre></td></tr></table></figure>
 
 <p>粘贴以下内容，然后按Ctrl+O，回车以保存文件：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">tunnel:</span> <span class="string">yuuki410</span> <span class="comment"># 这是示例，请替换你刚刚填写的隧道名称</span></span><br><span class="line"><span class="attr">credentials-file:</span> <span class="comment"># 请填入 /用户目录路径/.cloudflared/&lt;隧道UUID&gt;.json，在刚才的输出信息中有</span></span><br><span class="line"><span class="attr">ingress:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">hostname:</span> <span class="string">&quot;yuuki.eu.org&quot;</span> <span class="comment"># 这是示例，请替换成你申请的eu.org域名</span></span><br><span class="line">    <span class="attr">service:</span> <span class="string">&quot;http://localhost&quot;</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">hostname:</span> <span class="string">&quot;*.yuuki.eu.org&quot;</span> <span class="comment"># 这是示例，请替换成你申请的eu.org域名</span></span><br><span class="line">    <span class="attr">service:</span> <span class="string">&quot;http://localhost&quot;</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">service:</span> <span class="string">&quot;http_status:404&quot;</span></span><br></pre></td></tr></table></figure>
@@ -386,7 +393,7 @@
 
 <p>在浏览器中打开你注册的域名看看有无内容显示出来。</p>
 <h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><p>本教程到此结束。</p>
-<p>要保持你的树莓派可以访问，可以参考我的另一篇博客：<a target="_blank" rel="noopener" href="https://blog.yuuki.eu.org/note/Raspi-NAT/#%E4%BD%9C%E4%B8%BA%E6%9C%8D%E5%8A%A1">Raspi NAT 内网穿透§作为服务</a>。</p>
+<p>要保持你的树莓派可以访问，可以参考我的另一篇博客：<a href="https://blog.yuuki.eu.org/note/Raspi-NAT/#%E4%BD%9C%E4%B8%BA%E6%9C%8D%E5%8A%A1">Raspi NAT 内网穿透§作为服务</a>。</p>
 <p>要搭建网站，例如博客，请自行上网搜索相应教程。</p>
 <h2 id="另外"><a href="#另外" class="headerlink" title="另外"></a>另外</h2><p>这篇估计是目前为止我写的最长的一篇博客了，如果本文对你有帮助的话，不妨到本博客的Github仓库给个Star：<a target="_blank" rel="noopener" href="https://github.com/yuuki410/yuuki410.github.io/">https://github.com/yuuki410/yuuki410.github.io/</a>。</p>
 
@@ -406,7 +413,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://yuuki410.github.io/guide/Setup-a-website-with-Raspberry-Pi-4B/" title="用树莓派4B搭建网站">https://yuuki410.github.io/guide/Setup-a-website-with-Raspberry-Pi-4B/</a>
+      <a href="https://blog.yuuki.eu.org/guide/Setup-a-website-with-Raspberry-Pi-4B/" title="用树莓派4B搭建网站">https://blog.yuuki.eu.org/guide/Setup-a-website-with-Raspberry-Pi-4B/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-SA</a> 许可协议。转载请注明出处！
@@ -491,7 +498,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"yuuki410","repo":"blog.yuuki.eu.org","client_id":"d106da829da368c5336b","client_secret":"341a72bbcdf34ff58fe91c146a202a8e9bcc9e2f","admin_user":"yuuki410","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"85abde17cbb4354509acefb3673c1413"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"yuuki410","repo":"yuuki410.github.io","client_id":"d106da829da368c5336b","client_secret":"341a72bbcdf34ff58fe91c146a202a8e9bcc9e2f","admin_user":"yuuki410","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"85abde17cbb4354509acefb3673c1413"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
