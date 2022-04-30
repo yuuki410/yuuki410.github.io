@@ -13,7 +13,15 @@ copyright: false
 #### 转载信息
 来源: [病娇收容基金会 - 资源共享 子频道](https://qun.qq.com/qqweb/qunpro/share?_wv=3&_wwv=128&appChannel=share&inviteCode=1nRzq6&appChannel=share&businessType=7&from=181074&biz=ka&shareSource=5
 )
-作者署名: 孤岛体系
+原作者: 孤岛体系
+{% endnote %}
+
+{% note primary 修改内容 %}
+以下两张图表为 [Yuuki410](github.com/yuuki410) 使用 Excel 绘制
+{% gp 2 %}
+{% asset_img yandere-relationship-1.png %}
+{% asset_img yandere-relationship-2.png %}
+{% endgp %}
 {% endnote %}
 
 {% note danger no-icon %}
@@ -55,8 +63,10 @@ copyright: false
 
 我们还可以把病娇分为温和派和极端派，不以极端行为来分类，不以是否意识到自己的问题而分类，这纯粹是一种最终时刻到来时实现目标的方式不同。即极端派选择寻找机会杀人后殉情，绑架回家，孤立伴侣等方式来完成自己的目的，而在目的将要达成之前才会显现出病娇的属性。而温和派显现属性较快，主张与伴侣协商调整，最终达到二人世界的目的。这两种派别最大的不同在于社交关系的随时间的发展。
 
-{% asset_img yandere-relationship.jpg %}
-
+{% gp 2 %}
+{% asset_img yandere-relationship-1.png %}
+{% asset_img yandere-relationship-2.png %}
+{% endgp %}
 
 我们不难看出最大的不同点在于找到伴侣前的选择，一个是通过减少社交来隐藏自己，一个是通过增加社交来找寻伴侣，两种情况伴侣真实适合的概率相差很大，当然找到伴侣之后社交下降的速度也不同，如果直接下去极端手段的话双方的社交都会直接下降，而协商一开始处理大部人能接受的部分会很快，不过是占有欲高了一些，而到最终时刻到时候会非常慢，因为不是谁都能接受一个与世隔绝的二人世界，当然如果双方都想要这样的二人世界那自然很方便，甚至是一个由二人共同构建的有独特色彩的二人世界。并且实际上两派大部分人都不会认为自己是病娇，这也就是我之后要讲到的一点。
 
