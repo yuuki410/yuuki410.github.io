@@ -13,7 +13,7 @@ copyright: false
 #### 转载信息
 来源: [病娇收容基金会 - 资源共享 子频道](https://qun.qq.com/qqweb/qunpro/share?_wv=3&_wwv=128&appChannel=share&inviteCode=1nRzq6&appChannel=share&businessType=7&from=181074&biz=ka&shareSource=5
 )
-原作者: 孤岛体系
+原作者: [孤岛体系](https://space.bilibili.com/700476995)
 {% endnote %}
 
 {% note primary 修改内容 %}
