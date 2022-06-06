@@ -381,6 +381,50 @@
       </tags>
   </entry>
   <entry>
+    <title>通过 `code-server` 自己搭建 workspace</title>
+    <url>/guide/code-server/</url>
+    <content><![CDATA[<h2 id="安装code-server"><a href="#安装code-server" class="headerlink" title="安装code-server"></a>安装<code>code-server</code></h2><h3 id="源码运行"><a href="#源码运行" class="headerlink" title="源码运行"></a>源码运行</h3><p>首先需要安装<code>yarn</code>，可以通过<code>npm</code>安装：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i -g yarn</span><br></pre></td></tr></table></figure>
+
+<p>也可以使用<code>apt</code>，需要添加源再安装：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -</span><br><span class="line">echo &quot;deb https://dl.yarnpkg.com/debian/ stable main&quot; | sudo tee /etc/apt/sources.list.d/yarn.list</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install yarn -y</span><br></pre></td></tr></table></figure>
+
+<p>若需要卸载旧版或者不完整的<code>yarn</code>，运行：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt remove cmdtest</span><br><span class="line">sudo apt remove yarn</span><br></pre></td></tr></table></figure>
+
+<p>接着添加<code>code-server</code>：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yarn global add code-server</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>编译依赖可能需要一段时间。</p>
+<h3 id="Docker运行"><a href="#Docker运行" class="headerlink" title="Docker运行"></a>Docker运行</h3><p>需要先安装好Docker，参考<a href="https://docs.docker.com/engine/install/">官方文档</a>，本文不做叙述。</p>
+<p>拉取镜像：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker pull codercom/code-server:latest</span><br></pre></td></tr></table></figure>
+
+<p>部署运行Docker：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">--name=[容器名] \</span><br><span class="line">-e PASSWORD=[密码] \</span><br><span class="line">-e SUDO_PASSWORD=[root密码] \</span><br><span class="line">-p [外部端口]:8080 \</span><br><span class="line">--restart unless-stopped \</span><br><span class="line">codercom/code-server</span><br></pre></td></tr></table></figure>
+
+<p>部署后还需要进入容器修改code server配置：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker exec [容器名] /bin/bash</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h2><p>编辑<code>~/.config/code-server/config.yaml</code>：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nano ~/.config/code-server/config.yaml</span><br></pre></td></tr></table></figure>
+
+<p>修改<code>password</code>为你需要的密码，这是网页登陆code server需要的，而非docker和linux密码。</p>
+<p>如不需要密码，修改<code>auth</code>为<code>none</code>。</p>
+<h2 id="运行code-server"><a href="#运行code-server" class="headerlink" title="运行code server"></a>运行code server</h2><p>直接运行源码：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">code-server</span><br></pre></td></tr></table></figure>
+
+<p>Docker需要重启才能应用配置。</p>
+]]></content>
+      <categories>
+        <category>guide</category>
+      </categories>
+      <tags>
+        <tag>VS Code</tag>
+        <tag>web server</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于VSCode字符编码</title>
     <url>/guide/Windows/fuck-to-vscode/</url>
     <content><![CDATA[<p>Windows上跑node.js时报错：</p>
