@@ -415,6 +415,11 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">code-server</span><br></pre></td></tr></table></figure>
 
 <p>Docker需要重启才能应用配置。</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://stackoverflow.com/questions/46013544/yarn-install-command-error-no-such-file-or-directory-install">https://stackoverflow.com/questions/46013544/yarn-install-command-error-no-such-file-or-directory-install</a></li>
+<li><a href="https://wiki-power.com/unlist/Docker%E6%96%B9%E5%BC%8F%E8%BF%90%E8%A1%8Ccode-server">Docker 方式运行 code-server</a></li>
+<li><a href="https://wiki-power.com/DockerCompose-%E6%9B%B4%E4%BC%98%E9%9B%85%E7%9A%84%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F">使用Code Server容器部署VS Code Online</a></li>
+</ul>
 ]]></content>
       <categories>
         <category>guide</category>
@@ -588,6 +593,9 @@
 <td align="left">显示一个进程的输出（日志）</td>
 </tr>
 </tbody></table>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://pm2.keymetrics.io/docs/usage/pm2-doc-single-page/">PM2 Offical Docment</a></li>
+</ul>
 ]]></content>
       <categories>
         <category>guide</category>
