@@ -381,7 +381,7 @@
       </tags>
   </entry>
   <entry>
-    <title>通过 `code-server` 自己搭建 workspace</title>
+    <title>通过code-server自己搭建 workspace</title>
     <url>/guide/code-server/</url>
     <content><![CDATA[<h2 id="安装code-server"><a href="#安装code-server" class="headerlink" title="安装code-server"></a>安装<code>code-server</code></h2><h3 id="源码运行"><a href="#源码运行" class="headerlink" title="源码运行"></a>源码运行</h3><p>首先需要安装<code>yarn</code>，可以通过<code>npm</code>安装：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm i -g yarn</span><br></pre></td></tr></table></figure>
@@ -511,6 +511,89 @@
         <tag>Ubuntu</tag>
         <tag>Linux</tag>
         <tag>sudo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用pm2管理进程实例</title>
+    <url>/guide/pm2/</url>
+    <content><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>pm2可以使用yarn安装：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yarn global add pm2</span><br></pre></td></tr></table></figure>
+
+<p>也可以使用npm安装：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install --location=global pm2</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>pm2的基础用法：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pm2 start index.js</span><br></pre></td></tr></table></figure>
+<p>这将使用<code>node index.js</code>启动当前目录下的<code>index.js</code>。</p>
+<span id="more"></span>
+<p>常用的参数：</p>
+<table>
+<thead>
+<tr>
+<th align="right">参数</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right"><code>-n</code> <code>--name</code></td>
+<td align="left">指定进程名称，否则自动生成</td>
+</tr>
+<tr>
+<td align="right"><code>-c</code> <code>--cron</code></td>
+<td align="left">指定一个<code>cron</code>表达式，进程将自动在指定的时间重启</td>
+</tr>
+<tr>
+<td align="right"><code>--max-memory-restart</code></td>
+<td align="left">指定最大内存占用大小，单位为字节（Byte），达到上限时进程将被重启</td>
+</tr>
+<tr>
+<td align="right"><code>-m</code> <code>--mini-list</code></td>
+<td align="left">不要格式化输出</td>
+</tr>
+</tbody></table>
+<p>除了<code>start</code>以外，还有以下常用指令：</p>
+<table>
+<thead>
+<tr>
+<th align="right">指令</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right"><code>start</code></td>
+<td align="left">启动一个进程</td>
+</tr>
+<tr>
+<td align="right"><code>stop</code></td>
+<td align="left">停止一个进程</td>
+</tr>
+<tr>
+<td align="right"><code>restart</code></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="right"><code>list</code> <code>ls</code> <code>l</code></td>
+<td align="left">列出进程</td>
+</tr>
+<tr>
+<td align="right"><code>show</code></td>
+<td align="left">指定进程名或id，显示进程的详细信息</td>
+</tr>
+<tr>
+<td align="right"><code>delete</code> <code>del</code></td>
+<td align="left">停止一个进程，并删除它的配置</td>
+</tr>
+<tr>
+<td align="right"><code>logs</code></td>
+<td align="left">显示一个进程的输出（日志）</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>guide</category>
+      </categories>
+      <tags>
+        <tag>pm2</tag>
       </tags>
   </entry>
   <entry>
