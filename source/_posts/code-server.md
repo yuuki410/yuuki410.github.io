@@ -1,5 +1,5 @@
 ---
-title: 通过 `code-server` 自己搭建 workspace
+title: 通过code-server自己搭建 workspace
 date: 2022-06-06 09:26:43
 categories: guide
 tags:
