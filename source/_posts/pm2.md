@@ -47,3 +47,7 @@ pm2 start index.js
 | `show` | 指定进程名或id，显示进程的详细信息 |
 | `delete` `del` | 停止一个进程，并删除它的配置 |
 | `logs` | 显示一个进程的输出（日志） |
+
+## References
+
+- [PM2 Offical Docment](https://pm2.keymetrics.io/docs/usage/pm2-doc-single-page/)

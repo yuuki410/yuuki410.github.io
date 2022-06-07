@@ -80,3 +80,9 @@ code-server
 ```
 
 Docker需要重启才能应用配置。
+
+## References
+
+- https://stackoverflow.com/questions/46013544/yarn-install-command-error-no-such-file-or-directory-install
+- [Docker 方式运行 code-server](https://wiki-power.com/unlist/Docker%E6%96%B9%E5%BC%8F%E8%BF%90%E8%A1%8Ccode-server)
+- [使用Code Server容器部署VS Code Online](https://wiki-power.com/DockerCompose-%E6%9B%B4%E4%BC%98%E9%9B%85%E7%9A%84%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F)
