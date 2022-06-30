@@ -519,6 +519,26 @@
       </tags>
   </entry>
   <entry>
+    <title>pkg-config and libcrypto++</title>
+    <url>/note/pkg-config-and-libcrypto/</url>
+    <content><![CDATA[<p>Ubuntu:  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libcrypto++6 libcrypto++-dev -y</span><br><span class="line">pkg-config --cflags libcrypto++</span><br></pre></td></tr></table></figure>
+
+<p>Arch Linux:  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -Syyu crypto++</span><br><span class="line">pkg-config --cflags libcryptopp</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>为什么会有这么多的别名</p>
+]]></content>
+      <categories>
+        <category>note</category>
+      </categories>
+      <tags>
+        <tag>pkg-config</tag>
+        <tag>libcrypto++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用pm2管理进程实例</title>
     <url>/guide/pm2/</url>
     <content><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>pm2可以使用yarn安装：</p>
