@@ -17,6 +17,28 @@
       </tags>
   </entry>
   <entry>
+    <title>浅谈 Arch Linux 使用体验</title>
+    <url>/note/Arch-Linux/</url>
+    <content><![CDATA[<p>最近换用了Arch，每天开机第一件事就是<code>pacman -Syu</code>。</p>
+<p>非常推荐有一定技术能力的人去尝试Arch，无论是学习还是实用，Arch is the best。</p>
+<h2 id="Arch特点"><a href="#Arch特点" class="headerlink" title="Arch特点"></a>Arch特点</h2><p>Arch采用滚动更新，这意味着所有最新的功能都会立刻推送给用户，其它非Arch衍生发行版都不具有这样的优势。</p>
+<p>Arch的包管理器是<code>pacman</code>，相比于<code>yum</code>和<code>apt</code>，pacman有更大的自由空间。</p>
+<p>AUR——Arch用户仓库，包含的其它人自己编写的安装脚本或软件，虽然不受官方支持，但是软件极其丰富，基本涵盖日常需要。</p>
+<p>Arch Linux Wiki，有着最齐全的Linux资料，即使你不使用，其上的资料也有很大的参考价值。</p>
+<h2 id="BTW-I-use-Arch"><a href="#BTW-I-use-Arch" class="headerlink" title="BTW I use Arch"></a>BTW I use Arch</h2><p>我不推荐使用Manjaro，虽然它提供一个开箱即用的环境，但是维护起来仍然需要一定的Linux知识，维护难度几乎与Arch相当，甚至更高。</p>
+<p>Arch的安装方式只有命令行，相比于Ubuntu、Debian、CentOS显得更难，但是纯命令行界面允许用户按其所想自由定制。</p>
+<p>Arch安装完后不会有多余的预装软件，一切由用户决定。</p>
+<p>对于新手，建议从Ubuntu开始入门。</p>
+<p>谨记，安装Arch时必须要打开官方教程和搜索引擎，所有的报错信息务必先理解然后再解决，这是一种学习。</p>
+]]></content>
+      <categories>
+        <category>note</category>
+      </categories>
+      <tags>
+        <tag>Arch Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Shuen开发 疑难笔记</title>
     <url>/note/Dev-Shuen/</url>
     <content><![CDATA[<blockquote>
