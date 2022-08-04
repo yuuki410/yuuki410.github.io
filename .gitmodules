@@ -1,0 +1,3 @@
+[submodule "source/lib/theme-next-pdf"]
+	path = source/lib/theme-next-pdf
+	url = https://github.com/next-theme/theme-next-pdf.git
