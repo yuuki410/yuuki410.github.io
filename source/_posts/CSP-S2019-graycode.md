@@ -3,6 +3,7 @@ title: CSP-S2019 格雷码
 date: 2022-10-04 10:00:00
 categories: note
 tags:
+- CSP-S
 - CSP-S2019
 ---
 
