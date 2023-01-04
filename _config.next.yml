@@ -50,10 +50,10 @@ darkmode: false
 # ---------------------------------------------------------------
 
 favicon:
-  small: /images/favicon16.png
-  medium: /images/favicon32.png
-  apple_touch_icon: /images/apple-touch-icon.png
-  safari_pinned_tab: /images/logo.svg
+  small: /images/yuuki410.png
+  medium: /images/yuuki410_880.png
+  apple_touch_icon: /images/yuuki410_880.png
+  safari_pinned_tab: /images/yuuki410_logo.svg
   #android_manifest: /manifest.json
 
 # Custom Logo (Warning: Do not support scheme Mist)
@@ -155,16 +155,22 @@ site_state: true
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
   GitHub: https://github.com/yuuki410 || fab fa-github
-  E-Mail: mailto:yuuki410@163.com || far fa-envelope
+  E-Mail: mailto:yuuki410@163.com || fa fa-envelope
+  XMPP: xmpp:yuuki410@conversations.im || fa fa-comments
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
-  #Twitter: https://twitter.com/yourname || fab fa-twitter
+  Twitter: https://twitter.com/ || fab fa-twitter
   #FB Page: https://www.facebook.com/yourname || fab fa-facebook
   #StackOverflow: https://stackoverflow.com/yourname || fab fa-stack-overflow
   #YouTube: https://youtube.com/yourname || fab fa-youtube
   #Instagram: https://instagram.com/yourname || fab fa-instagram
   #Skype: skype:yourname?call|chat || fab fa-skype
-  SCPWiki-CN: http://scp-wiki-cn.wikidot.com/tachibana-yuuki-s-personnel-file
+  Reddit: https://www.reddit.com/ || fab fa-reddit-alien
+  Telegram: https://t.me/ || fab fa-telegram-plane
+  Discord: https://discord.gg/ || fab fa-discord
+  Line: https://line.me/ || fab fa-line
+  QQ: https://im.qq.com/ || fab fa-qq
+  WeChat: https://weixin.qq.com/ || fab fa-weixin
 
 social_icons:
   enable: true
