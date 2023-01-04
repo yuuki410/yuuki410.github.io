@@ -30,7 +30,7 @@ The following two screenshots are from Easy Language editor, and the copyright o
 
 Edit `locale.gen`:
 ```bash /etc/locale.gen
-# Uncomment these line
+# Uncomment these lines
 zh_CN.GB18030 GB18030
 zh_CN.GBK GBK
 zh_CN.UTF-8 UTF-8
@@ -44,6 +44,6 @@ sudo locale-gen
 
 Start `wine`:
 ```bash
-export LC_ALL=zh_CN.GBK # Change zh_CN.GBK to zh_CN.GB2312 / zh_CN.GB18030 if it not work
+export LC_ALL=zh_CN.GBK # Change zh_CN.GBK to zh_CN.GB2312 / zh_CN.GB18030 if it does not work
 wine <excutable.exe>
 ```
