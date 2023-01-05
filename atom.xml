@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>∄</title>
+  
+  <subtitle>Tachibana Yuuki&#39;s Blog</subtitle>
+  <link href="https://blog.yuuki.eu.org/atom.xml" rel="self"/>
+  
+  <link href="https://blog.yuuki.eu.org/"/>
+  <updated>2023-01-05T05:46:59.967Z</updated>
+  <id>https://blog.yuuki.eu.org/</id>
+  
+  <author>
+    <name>Tachibana Yuuki</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Wine GBK 中文乱码 解决</title>
+    <link href="https://blog.yuuki.eu.org/guide/Wine-GBK-Encoding/"/>
+    <id>https://blog.yuuki.eu.org/guide/Wine-GBK-Encoding/</id>
+    <published>2023-01-04T06:42:45.000Z</published>
+    <updated>2023-01-05T05:46:59.967Z</updated>
+    
+    <content type="html"><![CDATA[<details class="note primary danger"><summary><p>Image Copyright reserved 图像著作权保留</p></summary><h4 id="Image-Copyright-reserved-图像著作权保留"><a href="#Image-Copyright-reserved-图像著作权保留" class="headerlink" title="Image Copyright reserved 图像著作权保留"></a>Image Copyright reserved 图像著作权保留</h4><p>以下两张截图来自易语言编辑器，该界面设计版权归属原作者所有。<br>The following two screenshots are from Easy Language editor, and the copyright of the user interface design belongs to the original author.</p><div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/guide/Wine-GBK-Encoding/before.png" class=""></div><div class="group-picture-column"><img src="/guide/Wine-GBK-Encoding/after.png" class=""></div></div></div></details><div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/guide/Wine-GBK-Encoding/before.png" class=""></div><div class="group-picture-column"><img src="/guide/Wine-GBK-Encoding/after.png" class=""></div></div></div><p>Edit <code>locale.gen</code>:</p><figure class="highlight bash"><figcaption><span>/etc/locale.gen</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Uncomment these lines</span></span><br><span class="line">zh_CN.GB18030 GB18030</span><br><span class="line">zh_CN.GBK GBK</span><br><span class="line">zh_CN.UTF-8 UTF-8</span><br><span class="line">zh_CN GB2312</span><br></pre></td></tr></table></figure><p>Then, run command:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo locale-gen</span><br></pre></td></tr></table></figure><p>Start <code>wine</code>:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> LC_ALL=zh_CN.GBK <span class="comment"># Change zh_CN.GBK to zh_CN.GB2312 / zh_CN.GB18030 if it does not work</span></span><br><span class="line">wine &lt;excutable.exe&gt;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;details class=&quot;note primary danger&quot;&gt;&lt;summary&gt;&lt;p&gt;Image Copyright reserved 图像著作权保留&lt;/p&gt;
+&lt;/summary&gt;
+&lt;h4 id=&quot;Image-Copyright-reserved-图像著作权保留&quot;&gt;&lt;</summary>
+      
+    
+    
+    
+    <category term="guide" scheme="https://blog.yuuki.eu.org/categories/guide/"/>
+    
+    
+    <category term="Linux" scheme="https://blog.yuuki.eu.org/tags/Linux/"/>
+    
+    <category term="wine" scheme="https://blog.yuuki.eu.org/tags/wine/"/>
+    
+    <category term="GBK" scheme="https://blog.yuuki.eu.org/tags/GBK/"/>
+    
+    <category term="GB18030" scheme="https://blog.yuuki.eu.org/tags/GB18030/"/>
+    
+    <category term="GB2312" scheme="https://blog.yuuki.eu.org/tags/GB2312/"/>
+    
+    <category term="Encoding" scheme="https://blog.yuuki.eu.org/tags/Encoding/"/>
+    
+    <category term="乱码" scheme="https://blog.yuuki.eu.org/tags/%E4%B9%B1%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mirror a site by using wget</title>
+    <link href="https://blog.yuuki.eu.org/note/Mirror-a-site-by-using-wget/"/>
+    <id>https://blog.yuuki.eu.org/note/Mirror-a-site-by-using-wget/</id>
+    <published>2023-01-04T01:12:24.000Z</published>
+    <updated>2023-01-05T05:46:59.967Z</updated>
+    
+    <content type="html"><![CDATA[<p>抓取整个站点：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -m -r -p -np -k -E <span class="string">&#x27;https://example.com&#x27;</span></span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-r <span class="comment"># 递归抓取</span></span><br><span class="line">-k <span class="comment"># 修复绝对链接为相对链接，适合本地浏览</span></span><br><span class="line">-m <span class="comment"># 镜像</span></span><br><span class="line">-E <span class="comment"># 将 MIME TYPE 为 `text/html` 的文档用 `.html` 扩展名保存</span></span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-e robots=off <span class="comment"># 忽略 robots.txt 进行抓取，请注意这样使用可能违法</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;抓取整个站点：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;</summary>
+      
+    
+    
+    
+    <category term="note" scheme="https://blog.yuuki.eu.org/categories/note/"/>
+    
+    
+    <category term="Linux" scheme="https://blog.yuuki.eu.org/tags/Linux/"/>
+    
+    <category term="wget" scheme="https://blog.yuuki.eu.org/tags/wget/"/>
+    
+    <category term="Web" scheme="https://blog.yuuki.eu.org/tags/Web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Anaconda crash command Solution</title>
+    <link href="https://blog.yuuki.eu.org/guide/Anaconda-crash-command-Solution/"/>
+    <id>https://blog.yuuki.eu.org/guide/Anaconda-crash-command-Solution/</id>
+    <published>2023-01-03T12:08:09.000Z</published>
+    <updated>2023-01-05T05:46:59.964Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note danger no-icon"><h4 id="Copyright-reserved-著作权保留"><a href="#Copyright-reserved-著作权保留" class="headerlink" title="Copyright reserved 著作权保留"></a>Copyright reserved 著作权保留</h4><p>原作者没有特别声明，默认保留所有权利</p></div><h2 id="Anaconda-with-clear-command"><a href="#Anaconda-with-clear-command" class="headerlink" title="Anaconda with clear command"></a>Anaconda with <code>clear</code> command</h2><p>Anaconda 导致：</p><ul><li><code>clear</code> 命令不起作用<ul><li>显示 <code>terminals database is inaccessible</code></li></ul></li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ clear</span><br><span class="line">terminals database is inaccessible</span><br></pre></td></tr></table></figure><blockquote><p><a href="https://github.com/ContinuumIO/anaconda-issues/issues/331">https://github.com/ContinuumIO/anaconda-issues/issues/331</a></p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mv</span> <span class="variable">$CONDA_PREFIX</span>/bin/clear <span class="variable">$CONDA_PREFIX</span>/bin/clear_old</span><br></pre></td></tr></table></figure><h2 id="Anaconda-with-ibus"><a href="#Anaconda-with-ibus" class="headerlink" title="Anaconda with ibus"></a>Anaconda with <code>ibus</code></h2><p>Anaconda 导致：</p><ul><li><code>ibus</code> 冲突<ul><li>提示无法导入 <code>gi</code> 包</li></ul></li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ibus-setup</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">File <span class="string">&quot;/usr/share/ibus/setup/main.py&quot;</span>, line 34, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">from gi import require_version as gi_require_version</span><br><span class="line">ImportError: cannot import name <span class="string">&#x27;require_version&#x27;</span></span><br></pre></td></tr></table></figure><h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h3><blockquote><p><a href="https://blog.csdn.net/weixin_30764771/article/details/96301488">https://blog.csdn.net/weixin_30764771/article/details/96301488</a></p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Check where Anaconda is</span></span><br><span class="line">whereis anaconda <span class="comment"># anaconda: /opt/anaconda/bin/anaconda</span></span><br><span class="line"><span class="comment"># Disable it</span></span><br><span class="line">sudo <span class="built_in">chmod</span> 000 /opt/anaconda/</span><br></pre></td></tr></table></figure><h3 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Check your $PATH</span></span><br><span class="line"><span class="built_in">printenv</span> | grep PATH </span><br><span class="line"><span class="comment"># my $PATH:</span></span><br><span class="line"><span class="comment"># PATH=/opt/anaconda/bin:/opt/anaconda/condabin:/home/yuuki410/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set an new $PATH without Anaconda</span></span><br><span class="line"><span class="built_in">export</span> PATH=/home/yuuki410/.local/bin:/opt/gcc-arm-none-eabi-10.3-2021.10/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/home/yuuki410/.dotnet/tools:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl</span><br><span class="line">WINDOWPATH=1</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;div class=&quot;note danger no-icon&quot;&gt;&lt;h4 id=&quot;Copyright-reserved-著作权保留&quot;&gt;&lt;a href=&quot;#Copyright-reserved-著作权保留&quot; class=&quot;headerlink&quot; title=&quot;Copyright r</summary>
+      
+    
+    
+    
+    <category term="guide" scheme="https://blog.yuuki.eu.org/categories/guide/"/>
+    
+    
+    <category term="Linux" scheme="https://blog.yuuki.eu.org/tags/Linux/"/>
+    
+    <category term="Anaconda" scheme="https://blog.yuuki.eu.org/tags/Anaconda/"/>
+    
+    <category term="IBus" scheme="https://blog.yuuki.eu.org/tags/IBus/"/>
+    
+    <category term="python" scheme="https://blog.yuuki.eu.org/tags/python/"/>
+    
+    <category term="terminal" scheme="https://blog.yuuki.eu.org/tags/terminal/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSP-S2019 括号序列</title>
+    <link href="https://blog.yuuki.eu.org/note/CSP-S2019-bark/"/>
+    <id>https://blog.yuuki.eu.org/note/CSP-S2019-bark/</id>
+    <published>2022-10-04T02:00:00.000Z</published>
+    <updated>2023-01-05T05:46:59.964Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="55分：考虑-father-i-i-1-的情况"><a href="#55分：考虑-father-i-i-1-的情况" class="headerlink" title="55分：考虑 father[i]=i-1 的情况"></a>55分：考虑 <code>father[i]=i-1</code> 的情况</h3><p><code>Online</code></p><p>样例：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">01234567 // Pos</span><br><span class="line">()()(()) // Stdin</span><br><span class="line">01020013 // a[i] 贡献度</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0123456 // Pos</span><br><span class="line">((())() // Stdin</span><br><span class="line">0001102 // a[i] 贡献度</span><br></pre></td></tr></table></figure><p>说明：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for(int i=1; i&lt;=stdin.size(); i++)&#123;</span><br><span class="line">case stdin[i]==&#x27;(&#x27;: stack.push(i);</span><br><span class="line">                    break;</span><br><span class="line">case stdin[i]==&#x27;)&#x27;: int tmp = stack.pop();</span><br><span class="line">                    a[i]=a[father[tmp]]+1;</span><br><span class="line">                    break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;55分：考虑-father-i-i-1-的情况&quot;&gt;&lt;a href=&quot;#55分：考虑-father-i-i-1-的情况&quot; class=&quot;headerlink&quot; title=&quot;55分：考虑 father[i]=i-1 的情况&quot;&gt;&lt;/a&gt;55分：考虑 &lt;code&gt;fat</summary>
+      
+    
+    
+    
+    <category term="note" scheme="https://blog.yuuki.eu.org/categories/note/"/>
+    
+    
+    <category term="CSP-S" scheme="https://blog.yuuki.eu.org/tags/CSP-S/"/>
+    
+    <category term="CSP-S2019" scheme="https://blog.yuuki.eu.org/tags/CSP-S2019/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSP-S2019 格雷码</title>
+    <link href="https://blog.yuuki.eu.org/note/CSP-S2019-graycode/"/>
+    <id>https://blog.yuuki.eu.org/note/CSP-S2019-graycode/</id>
+    <published>2022-10-04T02:00:00.000Z</published>
+    <updated>2023-01-05T05:46:59.964Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> n, k, ans=<span class="number">0</span>;</span><br><span class="line"><span class="type">bool</span> a[<span class="number">100</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;k;</span><br><span class="line">    <span class="keyword">while</span>(n)&#123;</span><br><span class="line">        <span class="keyword">if</span>(k&lt;(<span class="number">1ull</span>&lt;&lt;(n<span class="number">-1</span>)))&#123;</span><br><span class="line">            a[n--]=<span class="number">0</span>;</span><br><span class="line">            cout&lt;&lt;<span class="number">0</span>;</span><br><span class="line">            k=k&amp;((<span class="number">1ull</span>&lt;&lt;n)<span class="number">-1</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            a[n--]=<span class="number">1</span>;</span><br><span class="line">            cout&lt;&lt;<span class="number">1</span>;</span><br><span class="line">            k=k&amp;((<span class="number">1ull</span>&lt;&lt;n)<span class="number">-1</span>);</span><br><span class="line">            k=((<span class="number">1ull</span>&lt;&lt;n)<span class="number">-1</span>)-k;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;</summary>
+      
+    
+    
+    
+    <category term="note" scheme="https://blog.yuuki.eu.org/categories/note/"/>
+    
+    
+    <category term="CSP-S" scheme="https://blog.yuuki.eu.org/tags/CSP-S/"/>
+    
+    <category term="CSP-S2019" scheme="https://blog.yuuki.eu.org/tags/CSP-S2019/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在Linux上安全地移除移动存储设备</title>
+    <link href="https://blog.yuuki.eu.org/guide/Safely-remove-flash-disk-from-Linux/"/>
+    <id>https://blog.yuuki.eu.org/guide/Safely-remove-flash-disk-from-Linux/</id>
+    <published>2022-08-06T13:21:26.000Z</published>
+    <updated>2023-01-05T05:46:59.967Z</updated>
+    
+    <content type="html"><![CDATA[<p>首先需要卸载挂载：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">umount &lt;path-to-mount-file&gt;</span><br></pre></td></tr></table></figure><p>如果你使用<code>nautilus</code>文件管理器，其左栏中有一方便的按钮可以轻松卸载设备。</p><p>对于更普遍的情况，使用<code>udisksctl</code>关闭设备电源：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">udisksctl power-off -p &lt;block-device-path&gt;</span><br></pre></td></tr></table></figure><p>然后再移除设备。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;首先需要卸载挂载：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code</summary>
+      
+    
+    
+    
+    <category term="guide" scheme="https://blog.yuuki.eu.org/categories/guide/"/>
+    
+    
+    <category term="Linux" scheme="https://blog.yuuki.eu.org/tags/Linux/"/>
+    
+    <category term="mount" scheme="https://blog.yuuki.eu.org/tags/mount/"/>
+    
+    <category term="udisksctl" scheme="https://blog.yuuki.eu.org/tags/udisksctl/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浅谈 Arch Linux 使用体验</title>
+    <link href="https://blog.yuuki.eu.org/note/Arch-Linux/"/>
+    <id>https://blog.yuuki.eu.org/note/Arch-Linux/</id>
+    <published>2022-07-11T01:56:39.000Z</published>
+    <updated>2023-01-05T05:46:59.964Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近换用了Arch，每天开机第一件事就是<code>pacman -Syu</code>。</p><p>非常推荐有一定技术能力的人去尝试Arch，无论是学习还是实用，Arch is the best。</p><h2 id="Arch特点"><a href="#Arch特点" class="headerlink" title="Arch特点"></a>Arch特点</h2><p>Arch采用滚动更新，这意味着所有最新的功能都会立刻推送给用户，其它非Arch衍生发行版都不具有这样的优势。</p><p>Arch的包管理器是<code>pacman</code>，相比于<code>yum</code>和<code>apt</code>，pacman有更大的自由空间。</p><p>AUR——Arch用户仓库，包含的其它人自己编写的安装脚本或软件，虽然不受官方支持，但是软件极其丰富，基本涵盖日常需要。</p><p>Arch Linux Wiki，有着最齐全的Linux资料，即使你不使用，其上的资料也有很大的参考价值。</p><h2 id="BTW-I-use-Arch"><a href="#BTW-I-use-Arch" class="headerlink" title="BTW I use Arch"></a>BTW I use Arch</h2><p>我不推荐使用Manjaro，虽然它提供一个开箱即用的环境，但是维护起来仍然需要一定的Linux知识，维护难度几乎与Arch相当，甚至更高。</p><p>Arch的安装方式只有命令行，相比于Ubuntu、Debian、CentOS显得更难，但是纯命令行界面允许用户按其所想自由定制。</p><p>Arch安装完后不会有多余的预装软件，一切由用户决定。</p><p>对于新手，建议从Ubuntu开始入门。</p><p>谨记，安装Arch时必须要打开官方教程和搜索引擎，所有的报错信息务必先理解然后再解决，这是一种学习。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;最近换用了Arch，每天开机第一件事就是&lt;code&gt;pacman -Syu&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;非常推荐有一定技术能力的人去尝试Arch，无论是学习还是实用，Arch is the best。&lt;/p&gt;
+&lt;h2 id=&quot;Arch特点&quot;&gt;&lt;a href=&quot;#Arch特</summary>
+      
+    
+    
+    
+    <category term="note" scheme="https://blog.yuuki.eu.org/categories/note/"/>
+    
+    
+    <category term="Arch Linux" scheme="https://blog.yuuki.eu.org/tags/Arch-Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pkg-config and libcrypto++</title>
+    <link href="https://blog.yuuki.eu.org/note/pkg-config-and-libcrypto/"/>
+    <id>https://blog.yuuki.eu.org/note/pkg-config-and-libcrypto/</id>
+    <published>2022-06-30T13:31:56.000Z</published>
+    <updated>2023-01-05T05:46:59.974Z</updated>
+    
+    <content type="html"><![CDATA[<p>Ubuntu:  </p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libcrypto++6 libcrypto++-dev -y</span><br><span class="line">pkg-config --cflags libcrypto++</span><br></pre></td></tr></table></figure><p>Arch Linux:  </p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Syyu crypto++</span><br><span class="line">pkg-config --cflags libcryptopp</span><br></pre></td></tr></table></figure><hr><p>为什么会有这么多的别名</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Ubuntu:  &lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span</summary>
+      
+    
+    
+    
+    <category term="note" scheme="https://blog.yuuki.eu.org/categories/note/"/>
+    
+    
+    <category term="pkg-config" scheme="https://blog.yuuki.eu.org/tags/pkg-config/"/>
+    
+    <category term="libcrypto++" scheme="https://blog.yuuki.eu.org/tags/libcrypto/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用pm2管理进程实例</title>
+    <link href="https://blog.yuuki.eu.org/guide/pm2/"/>
+    <id>https://blog.yuuki.eu.org/guide/pm2/</id>
+    <published>2022-06-07T08:40:59.000Z</published>
+    <updated>2023-01-05T05:46:59.974Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>pm2可以使用yarn安装：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn global add pm2</span><br></pre></td></tr></table></figure><p>也可以使用npm安装：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --location=global pm2</span><br></pre></td></tr></table></figure><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>pm2的基础用法：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pm2 start index.js</span><br></pre></td></tr></table></figure><p>这将使用<code>node index.js</code>启动当前目录下的<code>index.js</code>。</p><span id="more"></span><p>常用的参数：</p><table><thead><tr><th align="right">参数</th><th align="left">功能</th></tr></thead><tbody><tr><td align="right"><code>-n</code> <code>--name</code></td><td align="left">指定进程名称，否则自动生成</td></tr><tr><td align="right"><code>-c</code> <code>--cron</code></td><td align="left">指定一个<code>cron</code>表达式，进程将自动在指定的时间重启</td></tr><tr><td align="right"><code>--max-memory-restart</code></td><td align="left">指定最大内存占用大小，单位为字节（Byte），达到上限时进程将被重启</td></tr><tr><td align="right"><code>-m</code> <code>--mini-list</code></td><td align="left">不要格式化输出</td></tr></tbody></table><p>除了<code>start</code>以外，还有以下常用指令：</p><table><thead><tr><th align="right">指令</th><th align="left">功能</th></tr></thead><tbody><tr><td align="right"><code>start</code></td><td align="left">启动一个进程</td></tr><tr><td align="right"><code>stop</code></td><td align="left">停止一个进程</td></tr><tr><td align="right"><code>restart</code></td><td align="left"></td></tr><tr><td align="right"><code>list</code> <code>ls</code> <code>l</code></td><td align="left">列出进程</td></tr><tr><td align="right"><code>show</code></td><td align="left">指定进程名或id，显示进程的详细信息</td></tr><tr><td align="right"><code>delete</code> <code>del</code></td><td align="left">停止一个进程，并删除它的配置</td></tr><tr><td align="right"><code>logs</code></td><td align="left">显示一个进程的输出（日志）</td></tr></tbody></table><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li><a href="https://pm2.keymetrics.io/docs/usage/pm2-doc-single-page/">PM2 Offical Docment</a></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;p&gt;pm2可以使用yarn安装：&lt;/p&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yarn global add pm2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;也可以使用npm安装：&lt;/p&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install --location=global pm2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;使用&quot;&gt;&lt;a href=&quot;#使用&quot; class=&quot;headerlink&quot; title=&quot;使用&quot;&gt;&lt;/a&gt;使用&lt;/h2&gt;&lt;p&gt;pm2的基础用法：&lt;/p&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;pm2 start index.js&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这将使用&lt;code&gt;node index.js&lt;/code&gt;启动当前目录下的&lt;code&gt;index.js&lt;/code&gt;。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="guide" scheme="https://blog.yuuki.eu.org/categories/guide/"/>
+    
+    
+    <category term="pm2" scheme="https://blog.yuuki.eu.org/tags/pm2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>通过code-server自己搭建 workspace</title>
+    <link href="https://blog.yuuki.eu.org/guide/code-server/"/>
+    <id>https://blog.yuuki.eu.org/guide/code-server/</id>
+    <published>2022-06-06T01:26:43.000Z</published>
+    <updated>2023-01-05T05:46:59.970Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装code-server"><a href="#安装code-server" class="headerlink" title="安装code-server"></a>安装<code>code-server</code></h2><h3 id="源码运行"><a href="#源码运行" class="headerlink" title="源码运行"></a>源码运行</h3><p>首先需要安装<code>yarn</code>，可以通过<code>npm</code>安装：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g yarn</span><br></pre></td></tr></table></figure><p>也可以使用<code>apt</code>，需要添加源再安装：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -</span><br><span class="line">echo &quot;deb https://dl.yarnpkg.com/debian/ stable main&quot; | sudo tee /etc/apt/sources.list.d/yarn.list</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install yarn -y</span><br></pre></td></tr></table></figure><p>若需要卸载旧版或者不完整的<code>yarn</code>，运行：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt remove cmdtest</span><br><span class="line">sudo apt remove yarn</span><br></pre></td></tr></table></figure><p>接着添加<code>code-server</code>：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn global add code-server</span><br></pre></td></tr></table></figure><span id="more"></span><p>编译依赖可能需要一段时间。</p><h3 id="Docker运行"><a href="#Docker运行" class="headerlink" title="Docker运行"></a>Docker运行</h3><p>需要先安装好Docker，参考<a href="https://docs.docker.com/engine/install/">官方文档</a>，本文不做叙述。</p><p>拉取镜像：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull codercom/code-server:latest</span><br></pre></td></tr></table></figure><p>部署运行Docker：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">--name=[容器名] \</span><br><span class="line">-e PASSWORD=[密码] \</span><br><span class="line">-e SUDO_PASSWORD=[root密码] \</span><br><span class="line">-p [外部端口]:8080 \</span><br><span class="line">--restart unless-stopped \</span><br><span class="line">codercom/code-server</span><br></pre></td></tr></table></figure><p>部署后还需要进入容器修改code server配置：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec [容器名] /bin/bash</span><br></pre></td></tr></table></figure><h2 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h2><p>编辑<code>~/.config/code-server/config.yaml</code>：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano ~/.config/code-server/config.yaml</span><br></pre></td></tr></table></figure><p>修改<code>password</code>为你需要的密码，这是网页登陆code server需要的，而非docker和linux密码。</p><p>如不需要密码，修改<code>auth</code>为<code>none</code>。</p><h2 id="运行code-server"><a href="#运行code-server" class="headerlink" title="运行code server"></a>运行code server</h2><p>直接运行源码：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code-server</span><br></pre></td></tr></table></figure><p>Docker需要重启才能应用配置。</p><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li><a href="https://stackoverflow.com/questions/46013544/yarn-install-command-error-no-such-file-or-directory-install">https://stackoverflow.com/questions/46013544/yarn-install-command-error-no-such-file-or-directory-install</a></li><li><a href="https://wiki-power.com/unlist/Docker%E6%96%B9%E5%BC%8F%E8%BF%90%E8%A1%8Ccode-server">Docker 方式运行 code-server</a></li><li><a href="https://wiki-power.com/DockerCompose-%E6%9B%B4%E4%BC%98%E9%9B%85%E7%9A%84%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F">使用Code Server容器部署VS Code Online</a></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;安装code-server&quot;&gt;&lt;a href=&quot;#安装code-server&quot; class=&quot;headerlink&quot; title=&quot;安装code-server&quot;&gt;&lt;/a&gt;安装&lt;code&gt;code-server&lt;/code&gt;&lt;/h2&gt;&lt;h3 id=&quot;源码运行&quot;&gt;&lt;a href=&quot;#源码运行&quot; class=&quot;headerlink&quot; title=&quot;源码运行&quot;&gt;&lt;/a&gt;源码运行&lt;/h3&gt;&lt;p&gt;首先需要安装&lt;code&gt;yarn&lt;/code&gt;，可以通过&lt;code&gt;npm&lt;/code&gt;安装：&lt;/p&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm i -g yarn&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;也可以使用&lt;code&gt;apt&lt;/code&gt;，需要添加源再安装：&lt;/p&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;echo &amp;quot;deb https://dl.yarnpkg.com/debian/ stable main&amp;quot; | sudo tee /etc/apt/sources.list.d/yarn.list&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get update&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get install yarn -y&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;若需要卸载旧版或者不完整的&lt;code&gt;yarn&lt;/code&gt;，运行：&lt;/p&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo apt remove cmdtest&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo apt remove yarn&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;接着添加&lt;code&gt;code-server&lt;/code&gt;：&lt;/p&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yarn global add code-server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="guide" scheme="https://blog.yuuki.eu.org/categories/guide/"/>
+    
+    
+    <category term="VS Code" scheme="https://blog.yuuki.eu.org/tags/VS-Code/"/>
+    
+    <category term="web server" scheme="https://blog.yuuki.eu.org/tags/web-server/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【转载】解放病娇宣言</title>
+    <link href="https://blog.yuuki.eu.org/collection/Yandere/"/>
+    <id>https://blog.yuuki.eu.org/collection/Yandere/</id>
+    <published>2022-04-30T12:47:07.000Z</published>
+    <updated>2023-01-05T05:46:59.970Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note info"><h4 id="转载信息"><a href="#转载信息" class="headerlink" title="转载信息"></a>转载信息</h4><p>来源: <a href="https://qun.qq.com/qqweb/qunpro/share?_wv=3&_wwv=128&appChannel=share&inviteCode=1nRzq6&appChannel=share&businessType=7&from=181074&biz=ka&shareSource=5">病娇收容基金会 - 资源共享 子频道</a><br>原作者: <a href="https://space.bilibili.com/700476995">孤岛体系</a></p></div><details class="note primary"><summary><p>修改内容</p></summary><p>以下两张图表为 <a href="github.com/yuuki410">Yuuki410</a> 使用 Excel 绘制</p><div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/collection/Yandere/yandere-relationship-1.png" class=""></div><div class="group-picture-column"><img src="/collection/Yandere/yandere-relationship-2.png" class=""></div></div></div></details><div class="note danger no-icon"><h4 id="保留著作权"><a href="#保留著作权" class="headerlink" title="保留著作权"></a>保留著作权</h4><p>原作者没有特别声明，默认保留所有权利</p></div><h2 id="病娇的定义"><a href="#病娇的定义" class="headerlink" title="病娇的定义"></a>病娇的定义</h2><blockquote><p>狭义上指那些面对持有好感的人而处于娇羞的状态下产生精神疾病的患者所表现出来的性格特征。广义上则指在处于精神疾病的状态下与被某事物强烈吸引无法自拔的人所表现出来的性格特征，有点偏向占有欲又有极端的思想或行为。病娇的形成通常会对某一现象产生常人无法理解与认同的强大情绪、执念。因此会以这为动力做出过激的行为，比如疯狂示爱、排他、跟踪、得不到就毁掉、自残等极端行为。</p><footer><strong>百度百科</strong><cite><a href="https://baike.baidu.com/item/%E7%97%85%E5%A8%87/9457469">baike.baidu.com/item/%E7%97%85%E5%A8%87/9457469</a></cite></footer></blockquote><h2 id="病娇的误区"><a href="#病娇的误区" class="headerlink" title="病娇的误区"></a>病娇的误区</h2><p>首先必须要说明的是，现在的绝大多数病娇文学和病娇作品并不是现实主义作品，现实中的病娇与作品中的病娇的关系如同耽美文学和同志文学一样有很大的区别，文学作品中病娇的表现张力普遍较高，并且严重脱离社会环境，偶像剧类的病娇与其说是病娇不如说是捆绑和sm，颇有霸道总裁爱上我的感觉，各种二次元病娇的头像似乎也都是每张必见血，这似乎是病娇作品的真实现状，所以在这里纠正一些偏见，病娇一定是会见血杀人的，病娇一定是会跟踪拘束的，病娇一定是会有很强的主动性的，这些都不对，这只是基于病娇本身的属性加上各种别的属性叠加而来的，而大部分的病娇作品多是攻击型病娇和独占型病娇，所以给人以错觉病娇就是代表着为了爱，杀人或者限制人生自由的人。这种理解实际上对绝大部分病娇并不友好，并且病娇的爱也不仅限制于情欲，情欲是用来体现爱的，若认为病娇仅仅就只剩下了个性爱内容，那么可以说是对病娇的极大误解了，当然还有一系列关于病娇的喜欢只是看脸，好看的就是病娇不好看的是变态这种反智言论就不加以论述，毕竟能把心理疾病和外貌搭边，我也没办法说什么。</p><span id="more"></span><h2 id="病娇的分类"><a href="#病娇的分类" class="headerlink" title="病娇的分类"></a>病娇的分类</h2><p>首先提出一点，一个人的性癖实际上与他的观念是密切相关的，而至于扮演一份关系中主动还是被动角色则是个人的偏好问题，所以性癖双方互相转化实属常见。</p><p>病娇具体分类为：依存型，独占型，排除型，攻击型，跟踪型，无害型，崇拜型，妄想型，孤立诱导型。然而我觉得这种根据行为分类的方式过于具体并且很多属性重叠在一起，实际上在此基础上以控制度和威胁度来区分行为才较为准确。</p><img src="/collection/Yandere/type-of-yandere.png" class=""><p>然而作为一种心理现象，病娇仅仅以行为分类远远不够，从病娇是否认识到自己的行为极端来考虑，这里提出一个新的概念：异构病娇。</p><p>病娇模式与异构病娇模式的最大区别就是是否知道自己的极端行为是正确的，病娇并不知道自己的行为是错误的，而异构病娇实际上是非常清楚自己的行为是有问题的，它们的运作机理是不太一样的，虽然都是以爱为核心，病娇更多的是关注于对方，将自己的爱付出给对方，并不注重本人的索求，只不过这种付出爱的方式让人难以承受，但异构病娇反而是在重在保护自己，而并不是在付出什么，更多的时候是在保护自己已有的或者想要拥有的东西不被抢走，本质上的内心想法是截然相反的，但是在外人无法看出他真实内心想法的情况之下，两者本来就没有太大区别，并且本人实际上也无法意识到这一情况，病娇一定是两种模式并存的，并且异构病娇模式的内容普遍打着病娇模式的旗号。并且最需要强调的是，病娇与异构病娇互为整个病娇这个全集的补集，异构病娇看起来不是病娇，但实际上就是病娇中的一部分，这也就是所说的病娇的主要形态的问题，病娇模式代表的实际上就是病娇的主要形态，或者说她更愿意维持的一个状态和行为模式，而所有进入异构病娇的种类仍然可以被使用，所以给病娇分类贴标签本质上是在将病娇商品化，是没有任何意义的，因为目的动机相同，使用什么手段对病娇而言并无区别。</p><p>而在现实生活中，随着认知的不断发展，病娇方的属性会不断削弱，但在病娇的极端行为被不断削弱的同时，这些极端属性会进入异构病娇中并被等待被激活，也就是说病娇属性一旦因为认知原因认识到这些行为是错误的，就会从病娇属性的管辖范围内消失反而从另一边出来了，因为模板是相同的，他们所需要的偏执占有欲等等内容同样也是相同，也就是说这两种模式所需要的内容一直是一致的，只不过在认知成长后，从病娇属性手下到了异构病娇属性手下，异构病娇属性同样与病娇属性的内容一样，病娇属性只要病娇认为是正确的就可以在各个极端行为中随意变换，也就是可以随意变换类型。异构病娇属性同样如此，只需要这位病娇在各种特殊或者极端情况下对某种行为进行道德许可，就可以拥有和病娇属性同样的随意切换的效果，毕竟对无论是对感情的偏执还是非常强的情绪化或者完美主义等等特性没有变的情况下，仅仅改变认知并没有说明从根本上改变什么，因为这种模式最可怕的地方从来都不是那些可有可无的极端行为，而是强大到恐怖的执念。即便认识到了自己的问题，依然为因为这种执念在特定的时候给自己重返病娇属性的机会。</p><p>或者换句话来说，随着病娇认识到自己的错误，行为并没有因之改变，反而更加的隐蔽或者隐忍。</p><div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/collection/Yandere/normal-yandere.png" class=""></div><div class="group-picture-column"><img src="/collection/Yandere/unusaul-yandere.png" class=""></div></div></div><p>我们还可以把病娇分为温和派和极端派，不以极端行为来分类，不以是否意识到自己的问题而分类，这纯粹是一种最终时刻到来时实现目标的方式不同。即极端派选择寻找机会杀人后殉情，绑架回家，孤立伴侣等方式来完成自己的目的，而在目的将要达成之前才会显现出病娇的属性。而温和派显现属性较快，主张与伴侣协商调整，最终达到二人世界的目的。这两种派别最大的不同在于社交关系的随时间的发展。</p><div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/collection/Yandere/yandere-relationship-1.png" class=""></div><div class="group-picture-column"><img src="/collection/Yandere/yandere-relationship-2.png" class=""></div></div></div><p>我们不难看出最大的不同点在于找到伴侣前的选择，一个是通过减少社交来隐藏自己，一个是通过增加社交来找寻伴侣，两种情况伴侣真实适合的概率相差很大，当然找到伴侣之后社交下降的速度也不同，如果直接下去极端手段的话双方的社交都会直接下降，而协商一开始处理大部人能接受的部分会很快，不过是占有欲高了一些，而到最终时刻到时候会非常慢，因为不是谁都能接受一个与世隔绝的二人世界，当然如果双方都想要这样的二人世界那自然很方便，甚至是一个由二人共同构建的有独特色彩的二人世界。并且实际上两派大部分人都不会认为自己是病娇，这也就是我之后要讲到的一点。</p><p>病娇的原生家庭环境仅仅决定了病娇的主要形态，病娇程度本身就是取决于她们对爱的极端理解程度或者说占有欲程度和偏执的程度以及相应的普世价值观和道德观念的约束程度，与病娇化的过程无太大关联。病娇化的过程仅仅是用来分析她在各种病娇类型中的倾向和真正观念崩坏的原因的，也就是最开始的取向，注意，病娇的种类叠加是非常正常的情况，不同事件不同表现也是十分正常的，暂时处于这个圆盘上的什么位置，需要具体去细分。</p><h2 id="病娇的基本属性"><a href="#病娇的基本属性" class="headerlink" title="病娇的基本属性"></a>病娇的基本属性</h2><p>病娇属性的基本点其实寥寥无几，归根结底就是自我中心主义。但可以细分为占有欲、完美主义等</p><p>占有欲强烈的人一般都是缺爱的或遭遇过什么事情导致他的安全感有所缺失，要么观念中控制欲过强，属于观念问题的。但是病娇占有欲强的关键点在于缺少社会性。绝大部分病娇意识不到自己是病娇，但是还是能意识到自己与社会的矛盾与撕裂，在丧失了社会意义上的自我价值后只能去寻找一个爱的对象来变相证明自己的自我价值或者确定自己的社会位置，所以会要求唯一性，会有很强的占有欲。而失去对方意味着失去社会价值，也意味着对她自我价值的否定。</p><p>说到社会性，病娇本质危害程度与形式危害程度实际上相反，但是任一种病娇在各种意义上的危险总和比正常人高。无法通过使用遵循规则的手段来获得自己的需求，于是只能通过看似强势的违反规则的力量来实现，这实际上是不敢或者没有能力与现实规则中的强者叫板或者对抗。</p><p>完美主义则是病娇极端理想化的体现，无论是将对方理想化提高到一种崇高客体的位置，希望对对方的完美独占，希望对方的想法和自己一致甚至强加自己的意志于别人并且希望能够趋同，还是纯粹到抹除任何利益要素的爱包括独占型病娇常见的将对方拉入一个与世隔绝甚至是无限时间的密闭空间之中（物理上的狭窄空间同时也是某种美学上的崇高空间，代表着充满激情的崇高爱的空间），都可以说是将完美主义发挥到了极致。人类总在两条截然不同的道路上行追求着美，因而在人类的认识之中，有两种截然不同的美，一种是极致的完美，一种则是残缺的病态美。而病娇恰巧就是这两者的集合体，这看似是一种矛盾感，实际上却正是完美主义最为精髓的部分，因为完美对立也叫完美，既然无法完美得到那就全部破坏就是典型的完美主义式思维，而病娇也会通过不断修改自身理解的完美的标准和定义来满足主观的完美感，如攻击型病娇常见的“爱的是对方这个人（或者是灵魂），对对方肢体的残缺所带来的不完美并不在乎”，再如有的病娇会调整完美独占的定义到“在爱情方面对方只能拥有自己”的，这种就显得十分的温和，表现的更像一个撒娇的纯爱女孩。但也有走极端的病娇调整标准到“对方在任何感情问题甚至社交问题上都只能拥有自己”，这就是大部分人印象中的病娇的样子。当然这也与病娇确实社会认同有很大关系，很显然病娇的完美主义是一种意义上的完美，以一种完美的爱来来填补社会性的缺失。</p><p>而最重要的就是自我中心主义。</p><p>病娇的爱也就是一种表面上无私，本质上自私。而在后面我提到的关于病娇的出路当中，会提到，将病娇的所有表面内容实现就是出路。也就是从“为了自己的伴侣”到为了自己的伴侣。那我们现在先继续关于自我中心主义的论述。从表面来看，病娇是为了或者说爱自己的伴侣才会这样做，但实际上她是为了给自己找一个社会位置，要注意病娇这种情况并不是主观想要这么做的，很多时候她只会意识到这种行为有问题，但不会意识到这是在弥补自己缺失的社会性。病娇是没有superego，也就是超我的规则约束的，所以她自控能力不强，这也就是病娇性欲太强或者说很多时候表现力比常人丰富的原因，作为一个成熟的病娇，不受规则约束但在打破之前也会尽力遵守，病娇的极致不是纵欲而是禁欲。并且病娇由于自我中心主义视角非常主观，观点同质化严重，也就导致了病娇的有点：充分交换意见没有办法切实实行，行为极端但仍然保留这种情况实际上就是不接受别人的意见和观点，也不在意社会规则的看法，除非社会规则的制裁攻击到了自己，才会选择遵守或者躲避。然而病娇的自我中心主义是一定要改变的，在下文我会详细的讲解为什么自我中心主义不能支撑病娇。</p><p>病娇的实际属性其实就只有这一点，或许看起来如此分析病娇的全部精髓都没了，不过实际上仅仅这一点所表现出来的，就已经可以看出这个角色在爱情观上出现的问题了，病的特征或者说观念上的甚至可能是精神上的“疾病”，娇则是二次元作品的画面需要处理的部分。至于她因为什么而“病”，如何表现她的“病”的，那就看个人喜好了，病娇本质上就是设立了一个具有错误观念并且有极强自我中心主义特点的角色基础，或者可以说是一个框架，在之上无论给这个角色赋予多么疯狂的举动都不算过分，所以病娇作品中攻击，绑架，黑化等情节很多，因为病娇有独特的表现力，所以病娇这一角色才能四处开花，因为这种为了爱而最终黑化作恶的妹子让人有一种可悲和怜悯感。</p><h2 id="病娇的受众"><a href="#病娇的受众" class="headerlink" title="病娇的受众"></a>病娇的受众</h2><p>为什么会有一大批人喜欢病娇呢？除去看脸馋身子这类之外，绝大部分的观众用百度百科中的资料基本就能解释：她们在病娇属性暴露后更加犀利的言辞以及行为，将我们平日里只敢意淫而不敢直说，敢乱想而不敢乱作的事情做了个遍。少女本身就处于柔弱的弱势地位在第一印象就已经抓住了我们，而在之后她们大多都会经历一段让观众或者玩家非常打抱不平的感情或是其它类型的折磨。而这个时候，我们不断膨胀的正义感和自我保护意识支配着我们的爱加倍地对这类角色的关注，一般情况下，同情心带来的想要帮助她，以及优越感虚荣心带来的想要俯视进一步发展的心情交织着我们对她们的感情翻倍。而说到他们的愤怒一般也就是普世原则中的七宗罪而已，她们只是没有被“由大多数人”制定的规则所限定而已他们只是履行了自己的原则罢了。每个人亦有贪念，都会有爱慕之人，也会有被伤害后的暴怒。如果说是她们夺走了别人的生命，不如说在这样的世界观中，在最初别人伤害她们时就已经播下了恶种，她们只是用那病娇的心理将那恶果不断发酵壮大罢了。</p><p>一般的萌与迷恋感都是出于两种情感，一种是认同，一种是敬畏。</p><p>在认同方面，我们不得不说这些病娇所追求的其实也是每一个人在感情中遇而不可求的境界。她们只是追求了错误的东西，遇到了错误的人，才会导致一切悲剧。被人狠狠伤害的心灵，和别人被他们狠狠伤害的肉体到底哪一个更痛？通过那绝望的画面，我们似乎很难判断出来。而之前也有过作品的病娇情绪过于绝望而引起制作人员方面的质疑。虽然有着普世观念的制约，但也不得不说在很多艺术作品中执刀仗剑的豪侠们斩杀恶人，其实也是将人们的正误观释放到了完全没有约束的环境中罢了。于是，究竟病娇们的举动是对谁错，诸位也不必过于纠结。在文艺作品中常见的多重世界或平行世界也是为了打破所谓常规才存在的，而这些少女们她们有着以自己为中心的世界观，也可以视作一个独立的小体系了。</p><p>在敬畏方面，一方面是病娇们一般会以斩杀或者抹杀施害者为结局，这种力量上绝对悬殊的直视感让人崇拜不已。</p><p>病娇，她们是矛盾的个体，再极度依赖之下是极度的抛弃和破坏，其实她们是存在每个人心中的执念，所以才会让我们觉得如此熟悉，她们就像是我们在遭遇不公和凌辱之时偶然迸发的念头一般。病态追求时苦苦挣扎让她们显得如此柔弱可怜，而黑化崩坏后的他们又是如此残暴得大快人心。</p><p>所以说实际上病娇顺应了绝大部分人不敢暴露的一面，毕竟在正常的道德观念或者说普世观念的约束之下，大部分人不得不去遵守那些确实是正确的且对双方都能以最大尊重的人与人之间的相处规则，但毕竟谁都想放任自己任性一次，将自己代入到病娇的视角中，让自己曾经在感情上甚至任何方面承受的委屈在这些病娇的复仇行为中得到释放。生活不易，人生之不顺十有八九，大部分人所积累的压力或许并不比这些病娇所背负的少，既然不能不顾他人的感受随意放肆，那就让这些和自己一样的可怜人去做吧，看着他们的对社会规则的叛逆，对永恒的美好的爱的渴望与不顾一切的复仇，也是一种缓解焦虑的不错方式。一个人渴望完美的关系，有占有欲是人之常情，不过不能太极端，要看清这个社会并不会完全如你想象的那么美好，世界不会遵循我们的主观意志让我们心想事成，我们渴望着那种完美，追求者那种完美，可当自己无法实现的时候，别太苛求，过程足够努力就可以了，学会接纳和正视自己和现实的不完美，学会尊重别人的感受，这是常人与病娇最不同的地方。</p><p>然而除去为了缓解资本逻辑带来的焦虑的这批人，还有一批特殊的关注病娇的人群，即病娇的承受者。</p><p>而这批人就是病娇真正的受众，因为病娇的爱有有一个非常独特的特性，就是我们所说的将对方理想化，而这正好符合一些并不优秀和出众但又希望被无条件肯定的一批人的认同感与恋爱感的需求，通过将主动权交给对方的方式来获得被肯定，认同和需要的感觉，病娇对对方不符合实际的需要与表达让自己获得了从他者那里对自己不一样甚至是完全相反的评价，以此来得到满足。病娇的情感是直接表达的，不加掩饰，将内在情感完全外化的，因为这种交流方式实际上是对双方关系而言最为稳定的选择，不会有误解会让病娇和承受者有一种稳定的爱情的感觉，对于渴望着爱情但又没有勇气付出实践的人来说，通过病娇的设定享受恋爱和正在行动的感觉，不需要自己直接表达情感而让病娇间接表达，即可处于一种内在自我依然处在一种没有暴露风险的平稳状态当中，来维持自己不主动但也不拒斥爱情的表面状态但实际上内心缺爱的情况（即不是我想谈，是对方逼我的，不是不想谈，是不想让别人知道你想，不想让感情暴露出来）病娇也可以强制通过各种非法方式证明完美的爱情不仅存在而且确定，并且这份爱情十分稳定，病娇的爱是在错误观念之下达到的一种极致与纯粹。主动性的将对方当作自己的唯一并且不给对方反抗自己意志和表达自己感情的权力，并不关注对方真正的内心想法而只在乎自己认为的，这也就是为什么说大部分喜欢病娇的人都平平无奇并且显得颓废，不想自己去改变现状而想着靠外力来改变自己，处于一种比较消极的状态。</p><p>然而这种病娇和承受者所希望的关系仍然是难以成立的，因为本质上病娇也缺少认同和关爱，承受者的被动和怯懦很显然无法满足病娇的要求。首先，病娇的理想化设定在接触现实后一定会带来极大的落差感，因为承受者一般并不如病娇所想象的一般那么美好，所以病娇一般都喜欢阳光的或者真正的有高尚品格的优秀对象（叫什么现充），而真正的承受者却被忽略，以至于出现病娇体系无论是病娇还是承受者最终多是求而不得的悲剧情况，因为唯一的希望就只剩下了找一个内在丰富优秀但是也缺爱的男生，这玩意本来就凤毛麟角，病娇并没有一个合适的接受对象，她们看不上能接受她们的，在现实中又无法通过非法手段控制她们喜欢但又害怕她们的男生，无法像sm一样被能达成一种双方需求融合且互补，与现实的强烈割裂感和无力感最终会导致有这种病娇倾向的人改变自己的属性或者观念以顺应社会，一个连双方的属性和需求都无法确定和统一而只能靠碰运气的关系是难以存活的，病娇纯粹又病态的爱与占有如同攻击在了海绵之上无法发力，二是她的行为很可能让你难以接受，毕竟你并不确定你遇到的病娇的主要形态是到处砍人攻击型的还是较温和的排除型，更无法确定独占型的束缚与囚禁是仅限于性爱还是真的就是如此生活。无论是任何关系都是需要双方的真心付出才能够维持下去，即便这个病娇真的遇到了一个真心喜欢她的人，也不代表她的所有行为都能被对方所接受，作品中的病娇只能存在于二次元和各种影视剧之中是因为他们使用非法手段或者干脆就是在异世界从而无视了恋爱双方关系最基本的原则，而我们无法做到无视规则和法律，自然就不得不承认如果通过合法途径最终成为伴侣，病娇对配偶的选择要求过高，即便有幸对方能接受病娇，让病娇的过激行为都处在能被配偶接受和理解的范围之内更是难上加难。在病娇如此被极端理解的时代，抛开寻找生活中的病娇有多难这一问题，即便承受者们真的能追求到病娇的爱，但是如何正确确定并选择自己能接受的类型仍然是难题，毕竟这玩意要是运气不好选错了说不定你没机会选择第二次，对于现实中的病娇这种如此小的团体，显然是没有足够多的数量来进行各个属性的定量分析的，加上病娇问题一般属于恋爱问题，过于清晰的分析对爱情并不友好，但病娇的偏激行为被配偶所接受又是必要的，这就带来了很大的麻烦。总而言之，病娇的爱恋关系无法做到确定和双方需求一致，并且找到病娇以及选择行为偏激程度与接受范围一致的病娇概率太小，这些buff一叠加，可以说病娇就已经被架空在天上了，所以看起来它只配存在于二次元之中，因为要在这个法治社会以及意志自由的世界上存活实在太难了。</p><p>但我却不这么认为，因为我们很显然的忽略了一点，那就是现实中病娇的爱情观是有道德观念存在的，大部分现实病娇都是有占有欲倾向和偏激倾向，这也就代表这种病娇实际上与常人没有太大差别的，大众所能接受的多是偏激程度较轻的病娇类型，所以说病娇的落地是有望的，我要找的可以存活的，缓和并且遵守原则的病娇模式是有极大概率存在甚至是本身就是有很好的基础的。</p><p>但是病娇的爱情观不被人所接受怎么办呢？通过病娇爱情观的理想化这一特性将自己变成纯爱，当然这种改变自身观念甚至可能是捏着鼻子办事的行为肯定不会让有病娇属性的人满意，毕竟自己的特点再怎么说也能丰富点性生活，说是一无是处肯定是不现实的。那么到底谁能和病娇观念一致呢？</p><p>没错，就是病娇本身，这也是第三种受众。病娇的不同是行为不同，也就是我们所说的属性叠加，但是占有欲，完美主义等观念是一致的，所以说真正能理解和承受病娇的爱的不是什么现充男孩或者承受者，正是这个团体本身，即双方都是病娇，彼此缺爱和提供爱，主动占有和被动依存，双方都尽力维持完美又稳定的爱情，即便双方互相排除或限制对方的社交关系这一点也容易了许多，这才真正的达到了双方爱恋关系确定且需求的一致，并且彼此的行为都能被理解和接受，还可以通过相互交流进行调节，尽量让这份属性仅仅影响性爱而不过多影响彼此的日常生活，这或许才是病娇属性最让人欣慰的落地方式，既没有影响到社会，又没有伤害到自己爱的人，又保留了属于彼此的独特的空间，可以尽情的释放双方都能接受的疯狂的爱欲，虽然是不影响生活只影响情欲是不现实的，肯定对爱有影响，但那毕竟是恋爱双方的事情，在不影响别人的前提下，这种双向奔赴所展现出的美好比一般的恋爱更加的纯粹和令人向往。</p><p>然而这仅仅是病娇在寻找伴侣方向上的落地方式，而这还远远不够。</p><h2 id="病娇的最终目的"><a href="#病娇的最终目的" class="headerlink" title="病娇的最终目的"></a>病娇的最终目的</h2><p>病娇的最终目的实际上非常简单，就是我们之前说的社会性的问题，在现实社会中没有属于她的位置，所以要创造一个稳固的与世隔绝的二人世界来确定自己的位置，或者说确定自我价值，所以病娇首先要认可社会性，本质上是创造了一个小社会，只有二人的小社会。马克思说过：认识一切社会关系的总和。那么在病娇这里就可以理解为：我是唯你的社会关系的总和。本质上病娇选择进入一个无论任何形式的二人世界都是为了规避在社会中没有位置的问题，当然这种二人世界也包括性意义上的二人世界，自然也就很容易解释病娇的性欲强大了，说到底，很多心理疾病都是哲学问题或者社会问题，病娇创造的二人世界说到底就是外部社会中失意后的无奈之举，因为病娇的社交失败很多时候并不是自己主观的或者自己想变成这样的，而是因为经历某些事情之后发生了改变，最终目的的本质实际上引导了病娇的真正出路，那就是去解决问题本身。</p><h2 id="病娇的爱情观上的典型错误"><a href="#病娇的爱情观上的典型错误" class="headerlink" title="病娇的爱情观上的典型错误"></a>病娇的爱情观上的典型错误</h2><p>典型的是在偏执和自我中心主义等的作用下所产生的两种错误，一种是一见钟情，一种是神化。</p><p>一见钟情实际上非常简单，由于对于伴侣的了解过于表面，形式化，所以对于伴侣的评判标准很容易只局限于外貌气质等，而这会对所谓的现充们造成极大威胁，实际上解决方法十分简单，在选择伴侣的时候留有一定的余地，充分了解一个人之后再选择托付终身，这样更容易找到值得自己托付一生的人。</p><p>而神化实际上比较严重，也就是我们说的把对方当作崇高客体，这是容易导致病娇的奔溃，从而导致病娇程度上升或者病娇行为的危险度和干涉度上升，这种与想象不同的打击带来的失控是很危险的，非常不友好。</p><p>但说到底，无论是一见钟情还是神化都是对对方了解不够充分导致的，实际上也就是病娇的充分交换意见这一特点是主观的而非客观的，才导致了爱情观上的偏差，只要真正落实充分交换意见就不会出现以上的错误。</p><h2 id="病娇的包容性"><a href="#病娇的包容性" class="headerlink" title="病娇的包容性"></a>病娇的包容性</h2><p>直接点就是Love is Love，不以性别，性癖，年龄，金钱等为区别，在本质上包容一切，只维护爱情至高的原则，所以说病娇一定有最基本的去庸俗化。并且病娇理应成为一个平权主义者，国际主义者。有包容一切形式的爱的力量，当然病娇自己可以有偏好，不过尊重别的形式的爱情是病娇的基本。所以我非常反感对于病娇的分类，我觉得这是一种异化（dissimilation而不是alienation），是搞分裂主义，病娇的类别本就繁多，并且由于马蹄铁理论，很多时候会出现各种层面上极端的对立，而这不利于病娇的统一与凝聚，应该抓住病娇维护真爱的本质，抓住病娇在社会性等方面的共同点，而非将本就脆弱而弱小的团体拆散。</p><h2 id="病娇的困局"><a href="#病娇的困局" class="headerlink" title="病娇的困局"></a>病娇的困局</h2><p>病娇的困局可以分为个人角度和群体角度。但敌人其实是一致的。<br>资本主义式的爱情观对底层的影响挤压了病娇的生存空间，因为病娇实际上是最低限度的非庸俗化的纯爱，虽说是变体但仍然属于纯爱，而以金钱至上的社会普遍价值评判显然的影响到了病娇本就不高的寻找伴侣的成功率，对于每个病娇本人的最终目的的实现都会有很大的负面效果。从个人角度来看，资本主义是病娇的敌人。</p><p>从病娇群体角度来看，由于病娇和病娇之间的区别很大，而真实的病娇与作品中极具表现力的角色差距是极大的，也就是说，病娇的定义被作品垄断了，而在资本的操纵之下，病娇作品的内容逐渐变得极端，也就越发远离现实中的病娇，所以导致大部分病娇并没有办法很好的自我定义，甚至在一定程度上优先排除了自己是一个病娇的事实，病娇也就无法成为一个整体，自然也就无法凝聚革命性的力量，从病娇群体来看，资本主义也是敌人。</p><p>所以病娇应该站在人民的一边，病娇也本就是人民的一份子，反抗资本主义式的爱情观，维护真正的爱情，不仅为病娇群体自己更为全体人民争取真正纯净的爱情，让所有人都有享受真正爱情的权利。</p><p>当然病娇一定要区分于资本主义式的至高爱情，不能视那些无能获得真正爱情的人为蝼蚁，为非人。不该歧视生存型的性，生殖型的性，快感式的性，而要去解放他们，不该有布尔乔亚的意识形态，不该有敌人的意识形态。<br>而这种困局也决定了解决的方式。</p><h2 id="病娇的出路"><a href="#病娇的出路" class="headerlink" title="病娇的出路"></a>病娇的出路</h2><p>与上文病娇的受众相照应，最好能够进行病娇的内部消化，形成一个相互需要或者说环化的关系。</p><p>要调和到一个社会规则能接受的范围的一个极限。从个人角度而言，第一步是寻找伴侣方向上应该追求相互需要和理解，也就是最好是病娇，因为这样比较好协商不会有很大差异。</p><p>第二步则是要调整极端行为，先是将极端行为调和到关系双方都能接受的范围内，然后要将极端行为从日常生活转移到相对而言二人世界的性生活中，这是对于病娇极端行为的处理。</p><p>最后则是保留病娇的优秀特质，比如将自我中心主义等等中一些主观化的美德具象化或者说客观化，说到底就是之前说的出路就是把病娇所有表面的东西都转化为本质的东西，从“为伴侣”到为伴侣，或者说以这份关系，以彼此为中心。比如充分交换意见这种能维持关系稳定性的方式。</p><p>而从病娇群体的角度，那就需要一个大局观，我会提出一个新的概念：解放病娇</p><p>既然在社会中找不到属于自己的位置，所以才要创造一个二人世界来替代外部社会的话，那不如直接改造这个世界，为了我们自己，为了别的同胞们，也为了人民！推翻资本主义，建立共产主义。病娇有最基本的反思性，计划能力，并且有忍耐性，中国的政治呈现密室政治的色彩，而病娇的自我中心主义本身就自带博弈论特色，是适合去改造改造社会的，病娇群体应该成为反抗资本主义爱情观的先锋队。有了在社会上的一席之地，自然就可以敞开心扉，表明要求，就可以减少不必要的伤害，病娇成功找到伴侣比平常人要低得多，我们只需要与常人平等即可，就如同男同女同的正常化一样，不歧视即可。</p><p>想要解放，先要是有个人的定位，先要将病娇从资本主义式的作品中解放出来，让更多病娇找清自己的定位，然后一定要发展群体意识，本就弱小的我们需要团结一心，为了共同的理想而奋斗。</p><h2 id="旧病娇的结构性危机与注定的失败"><a href="#旧病娇的结构性危机与注定的失败" class="headerlink" title="旧病娇的结构性危机与注定的失败"></a>旧病娇的结构性危机与注定的失败</h2><p>旧病娇的这套本身就是自我矛盾的，因为当她实现了所谓的占有的同时会导致病娇这个属性的毁坏。病娇只有充分交换意见才能够维持关系的稳定，但是这种做法必然会导致病娇的本质自我中心主义的同质化被破坏，除非你只是想要形式上的交换或者说你是杀人加殉情的那种，我们排除不对等的关系，在非压迫的基础上，一个想通过极端手段来建立一段真正双方都认可的恋爱关系的病娇是不可能实现她的目的的，因为一旦真的充分交换意见就代表着自我中心主义的奔溃，所以一定要提前去自我中心主义，改变体制，否则病娇属性可能会消失（变成纯爱）也就是说这套体制达到了占有的小目的，而达不到永恒的大目的，或者说，它实现了占有这个手段，而注定无法达到目的，甚至会导致占有了之后发现自己错了的情况。从占有到了解到去中心化到不想占有。旧病娇体系注定了维持病娇属性与获得社会性无法兼容。</p><h2 id="构建新病娇的思路"><a href="#构建新病娇的思路" class="headerlink" title="构建新病娇的思路"></a>构建新病娇的思路</h2><p>在我看来，首先要具有社会意识，实际上这就是在将本来病娇所有主观认为自己拥有的美德全都真正落实，客观化，这样可以展现病娇的独特魅力，而占有欲，偏执等等也就确实变成了一种萌属性，这是对病娇的缺陷进行调整。然后再以一种新的形式保留病娇模式的优势，比如说独特的性生活硬件，可以支撑强制型sm之类的特点，改造为相对于普通人有独特优势的人。要从个人视角升华到群体视角，社会视角。成为爱情，并非仅仅是自己的爱情的守护者或者说捍卫者。当然也要去自我中心化，找到并确认自我的有限性，找到自我的否定性与开创性，这样才能达到一个辩证唯物主义的维度，但目前我并没有想到新病娇模式应该如何，只是暂时留下一个思路。</p><p>孤岛体系<br>2022年4月30日</p><div class="note danger no-icon"><h4 id="保留著作权"><a href="#保留著作权" class="headerlink" title="保留著作权"></a>保留著作权</h4><p>原作者没有特别声明，默认保留所有权利</p></div>]]></content>
+    
+    
+    <summary type="html">&lt;div class=&quot;note info&quot;&gt;&lt;h4 id=&quot;转载信息&quot;&gt;&lt;a href=&quot;#转载信息&quot; class=&quot;headerlink&quot; title=&quot;转载信息&quot;&gt;&lt;/a&gt;转载信息&lt;/h4&gt;&lt;p&gt;来源: &lt;a href=&quot;https://qun.qq.com/qqweb/qunpro/share?_wv=3&amp;_wwv=128&amp;appChannel=share&amp;inviteCode=1nRzq6&amp;appChannel=share&amp;businessType=7&amp;from=181074&amp;biz=ka&amp;shareSource=5&quot;&gt;病娇收容基金会 - 资源共享 子频道&lt;/a&gt;&lt;br&gt;原作者: &lt;a href=&quot;https://space.bilibili.com/700476995&quot;&gt;孤岛体系&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;details class=&quot;note primary&quot;&gt;&lt;summary&gt;&lt;p&gt;修改内容&lt;/p&gt;
+&lt;/summary&gt;
+&lt;p&gt;以下两张图表为 &lt;a href=&quot;github.com/yuuki410&quot;&gt;Yuuki410&lt;/a&gt; 使用 Excel 绘制&lt;/p&gt;
+&lt;div class=&quot;group-picture&quot;&gt;&lt;div class=&quot;group-picture-row&quot;&gt;&lt;div class=&quot;group-picture-column&quot;&gt;&lt;img src=&quot;/collection/Yandere/yandere-relationship-1.png&quot; class=&quot;&quot;&gt;&lt;/div&gt;&lt;div class=&quot;group-picture-column&quot;&gt;&lt;img src=&quot;/collection/Yandere/yandere-relationship-2.png&quot; class=&quot;&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/details&gt;
+
+&lt;div class=&quot;note danger no-icon&quot;&gt;&lt;h4 id=&quot;保留著作权&quot;&gt;&lt;a href=&quot;#保留著作权&quot; class=&quot;headerlink&quot; title=&quot;保留著作权&quot;&gt;&lt;/a&gt;保留著作权&lt;/h4&gt;&lt;p&gt;原作者没有特别声明，默认保留所有权利&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;病娇的定义&quot;&gt;&lt;a href=&quot;#病娇的定义&quot; class=&quot;headerlink&quot; title=&quot;病娇的定义&quot;&gt;&lt;/a&gt;病娇的定义&lt;/h2&gt;&lt;blockquote&gt;&lt;p&gt;狭义上指那些面对持有好感的人而处于娇羞的状态下产生精神疾病的患者所表现出来的性格特征。广义上则指在处于精神疾病的状态下与被某事物强烈吸引无法自拔的人所表现出来的性格特征，有点偏向占有欲又有极端的思想或行为。病娇的形成通常会对某一现象产生常人无法理解与认同的强大情绪、执念。因此会以这为动力做出过激的行为，比如疯狂示爱、排他、跟踪、得不到就毁掉、自残等极端行为。&lt;/p&gt;
+&lt;footer&gt;&lt;strong&gt;百度百科&lt;/strong&gt;&lt;cite&gt;&lt;a href=&quot;https://baike.baidu.com/item/%E7%97%85%E5%A8%87/9457469&quot;&gt;baike.baidu.com/item/%E7%97%85%E5%A8%87/9457469&lt;/a&gt;&lt;/cite&gt;&lt;/footer&gt;&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;病娇的误区&quot;&gt;&lt;a href=&quot;#病娇的误区&quot; class=&quot;headerlink&quot; title=&quot;病娇的误区&quot;&gt;&lt;/a&gt;病娇的误区&lt;/h2&gt;&lt;p&gt;首先必须要说明的是，现在的绝大多数病娇文学和病娇作品并不是现实主义作品，现实中的病娇与作品中的病娇的关系如同耽美文学和同志文学一样有很大的区别，文学作品中病娇的表现张力普遍较高，并且严重脱离社会环境，偶像剧类的病娇与其说是病娇不如说是捆绑和sm，颇有霸道总裁爱上我的感觉，各种二次元病娇的头像似乎也都是每张必见血，这似乎是病娇作品的真实现状，所以在这里纠正一些偏见，病娇一定是会见血杀人的，病娇一定是会跟踪拘束的，病娇一定是会有很强的主动性的，这些都不对，这只是基于病娇本身的属性加上各种别的属性叠加而来的，而大部分的病娇作品多是攻击型病娇和独占型病娇，所以给人以错觉病娇就是代表着为了爱，杀人或者限制人生自由的人。这种理解实际上对绝大部分病娇并不友好，并且病娇的爱也不仅限制于情欲，情欲是用来体现爱的，若认为病娇仅仅就只剩下了个性爱内容，那么可以说是对病娇的极大误解了，当然还有一系列关于病娇的喜欢只是看脸，好看的就是病娇不好看的是变态这种反智言论就不加以论述，毕竟能把心理疾病和外貌搭边，我也没办法说什么。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="collection" scheme="https://blog.yuuki.eu.org/categories/collection/"/>
+    
+    
+    <category term="yandere" scheme="https://blog.yuuki.eu.org/tags/yandere/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用树莓派4B搭建网站</title>
+    <link href="https://blog.yuuki.eu.org/guide/Setup-a-website-with-Raspberry-Pi-4B/"/>
+    <id>https://blog.yuuki.eu.org/guide/Setup-a-website-with-Raspberry-Pi-4B/</id>
+    <published>2022-02-09T08:41:15.000Z</published>
+    <updated>2023-01-05T05:46:59.967Z</updated>
+    
+    <content type="html"><![CDATA[<p>事先声明：<br>本教程的作者<strong>不提供任何担保也不承担任何附带责任</strong>，若你询问我任何与本教程相关的问题，我可以<em>不回复</em>、<em>不作出正确回复</em>、<em>不提供相关资源</em>。</p><p>如果你有足够的时间来折腾这些的话，你可以继续看下去，本教程只需要你拥有：</p><ul><li>充裕的时间</li><li>网络连接</li><li>电力供应</li><li>电子邮箱</li><li>一块Raspberry Pi 4B及其配件（Micro SD卡，电源）</li></ul><p>当你准备好后，请接着往下阅读。</p><span id="more"></span><h2 id="树莓派"><a href="#树莓派" class="headerlink" title="树莓派"></a>树莓派</h2><p>我建议使用Raspberry Pi 4B，原因是该型号的算力较前有很大提升，建议RAM大小不小于2GB，以防编译某些程序时出错。<br>你可以前往官网购买：<a href="https://www.raspberrypi.com/products/raspberry-pi-4-model-b/">https://www.raspberrypi.com/products/raspberry-pi-4-model-b/</a><br>或在其它地方购买（请不要询问我<em>其它地方</em>是哪里）。</p><p>我建议使用Ubuntu系统，对于新手来说它比较友好。</p><h3 id="刷写SD卡"><a href="#刷写SD卡" class="headerlink" title="刷写SD卡"></a>刷写SD卡</h3><h4 id="选取系统"><a href="#选取系统" class="headerlink" title="选取系统"></a>选取系统</h4><p>我推荐使用Raspberry官网提供的刷写工具Raspberry Pi Imager，你可以在官网上下载该工具：<a href="https://www.raspberrypi.com/software/">https://www.raspberrypi.com/software/</a></p><p>若你看不懂英文并且使用Windows系统，可以直接使用此链接下载：<a href="https://downloads.raspberrypi.org/imager/imager_latest.exe">https://downloads.raspberrypi.org/imager/imager_latest.exe</a></p><p>随后在电脑上插入Micro SD卡（你可能会需要使用读卡器），启动该工具，依次单击<code>选择操作系统</code>(也可能显示为<code>CHOOSE OS</code>) &gt; <code>Other general-purpose OS</code> &gt; <code>Ubuntu</code>。</p><p>你将看到许多相似的选项，注意选择<code>Ubuntu Server &lt;版本号(一串数字)&gt; LTS (RPi 4)</code>，Server表示服务器，LTS表示长期支持版本，括弧内的RPi 4表示适用于Raspberry Pi 4，你实际看到的括弧内的文字可能是<code>RPi 3/4/400</code>等，只需注意是否包含<code>4</code>即可。</p><p>特别的，如果有多个选项符合上述要求，请注意粗体文本下面的描述文字，它应该包含<code>64-bit</code>（意为64位操作系统）和<code>arm64</code>（一种CPU架构，即Raspberry Pi 4B的CPU架构）。</p><p>若仍有多个选项符合上述要求，请单击版本号数字最大者。</p><h4 id="选取SD卡"><a href="#选取SD卡" class="headerlink" title="选取SD卡"></a>选取SD卡</h4><p>此时你已经回到一开始的界面，单击<code>选择SD卡</code>(也可能显示为<code>CHOOSE STORAGE</code>)，找到你插入的SD卡并单击它，如果你不能分辨哪一个是你插入的SD，请拔出所有连接到电脑的存储设备。</p><h4 id="烧录"><a href="#烧录" class="headerlink" title="烧录"></a>烧录</h4><p>按下<code>烧录</code>(也可能显示为<code>WRITE</code>)按钮，等待进度条完成，然后弹出SD卡，插到树莓派上。</p><p>这可能需要一段时间，在等待的时间里你可以继续后面的操作。</p><h2 id="启动树莓派"><a href="#启动树莓派" class="headerlink" title="启动树莓派"></a>启动树莓派</h2><p>将树莓派连接上有线网络（我不想提供WiFi连接的教程，它既复杂又不稳定），然后打开路由表，找出名为Ubuntu的设备，记录其IP地址。</p><p>此处示例的IP为<code>192.168.1.107</code>。</p><h2 id="安装宝塔面板"><a href="#安装宝塔面板" class="headerlink" title="安装宝塔面板"></a>安装宝塔面板</h2><p>若你使用Windows，你需要下载ssh客户端，我建议使用<a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">PuTTY</a>，若你不懂英文并且使用64位Windows系统，可以直接使用此链接下载：<a href="https://the.earth.li/~sgtatham/putty/latest/w64/putty-64bit-0.76-installer.msi">https://the.earth.li/~sgtatham/putty/latest/w64/putty-64bit-0.76-installer.msi</a></p><p>此处不提供安装PuTTY的教程。</p><p>使用ssh以用户<code>ubuntu</code>连接上树莓派，此处示例IP地址为<code>192.168.1.107</code>，请根据你的实际情况替换，若你使用Linux则可以输入此命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh ubuntu@192.168.1.107</span><br></pre></td></tr></table></figure><p>第一次连接时，系统将会要求你设置密码，请牢记此密码，否则你需要从&lt;#刷写SD卡&gt;重新开始。</p><p>连接上树莓派后键入以下命令以安装<a href="https://www.bt.cn/download/linux.html">宝塔面板</a>：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh</span><br></pre></td></tr></table></figure><p>根据提示操作即可。</p><p>安装完成时，将会输出面板信息，包括面板访问地址、默认用户、默认密码信息，请记录下这些内容。</p><h3 id="配置面板"><a href="#配置面板" class="headerlink" title="配置面板"></a>配置面板</h3><p>用浏览器打开面板地址，你可以按住Ctrl同时用单击URL以快速打开链接。</p><p>输入刚刚的默认用户和密码以登录。</p><p>按提示继续默认配置即可。</p><p>完成后转到左侧栏目中的<code>面板设置</code>，修改<code>安全入口</code>、<code>面板用户</code>、<code>面板密码</code>。</p><h2 id="申请eu-org域名"><a href="#申请eu-org域名" class="headerlink" title="申请eu.org域名"></a>申请eu.org域名</h2><p>这是一个免费二级域名提供商，老牌且可靠，最重要的是，大部分知名服务商都承认它作为根域。</p><p>进入它的注册页：<a href="https://nic.eu.org/arf/en/contact/create/">https://nic.eu.org/arf/en/contact/create/</a></p><p>填写信息并注册，请尽可能写地像真的一样，若你看不懂英文请找人帮忙填写。<br>请注意使用国外的邮箱，例如GMail、Yahoo等知名邮件服务，切勿使用匿名邮件服务，并牢记你填写的密码。<br>请注意选中<code>Private (not shown in the public Whois)</code>（防止Whois泄露你填写的地址和邮件）和<code>I have read and I accept the domain policy</code>（同意域名条款）。</p><p>你会在邮箱中收到一封确认邮件，邮件包含一个确认链接和你的登录用户名，请牢记此用户名，然后单击确认链接激活账户。</p><p>在<a href="https://nic.eu.org/arf/en/login/">https://nic.eu.org/arf/en/login/</a>使用刚才的用户名和你的密码登录，单击<code>New Domain</code>按钮。</p><p>在<code>Complete domain name</code>一栏填入你想要注册的二级域名，此处示例使用的是：<code>yuuki.eu.org</code>。</p><p>转到下方的<code>Name Server</code>填写DNS解析服务器信息，然后按<code>Submit</code>提交并等待屏幕上出现成功输出。<br>特别的，若你使用HE.net提供的解析服务，请在<code>Check for correctness of</code>一栏勾选<code>server names</code>。</p><p>然后你需要等待人工审核，这是为什么建议你填写信息时要写得真实些的原因。<br>审核通过后你会收到电子邮件通知，接着我们就可以继续下一步了。</p><p>但是，在大多数情况下，你还暂时没有DNS解析服务可用，因此你需要先注册一个DNS服务。<br>eu.org要求你要注册的域名已经在一个DNS服务商上具有解析记录，允许为尚未注册的域名提供解析的DNS服务商有：</p><ul><li>DNSPod（国内由腾讯代理）</li><li>HE.net</li></ul><p>这里我们选择HE.net。</p><h3 id="注册HE-net"><a href="#注册HE-net" class="headerlink" title="注册HE.net"></a>注册HE.net</h3><p>前往它的注册页面：<a href="https://ipv6.he.net/certification/register.php">https://ipv6.he.net/certification/register.php</a></p><p>填写信息并注册，随后你会收到确认邮件，单击其中的链接激活账户。</p><p>然后打开：<a href="https://dns.he.net/">https://dns.he.net/</a><br>在左侧的登录框中填入你的用户名和密码登录。</p><p>在左侧<code>Zone Functions</code>一栏中单击<code>Add a new domain</code>，键入你要注册的eu.org子域名，此处示例使用的是：<code>yuuki.eu.org</code>。</p><p>单击<code>Add Domain!</code>按钮，若你退回了登录界面，重新登录即可。</p><p>页面正中会列出你刚刚填入的域名，单击其侧的<img src="https://dns.he.net/include/images/pencil.png" alt="Edit Zone">按钮，若你退回了登录界面，重新登录再单击此按钮即可。</p><p>单击<code>New A</code>按钮，在<code>Name</code>中键入<code>www</code>，<code>IPv4 Address</code>中键入<code>8.8.8.8</code>，然后单击<code>Submit</code>，若你退回了登录界面，重新执行上述操作。<br>（此处键入的解析记录仅作注册用，若你认真填写的话也无妨）</p><p>然后你就可以在继续在eu.org申请域名了。</p><h2 id="注册Cloudflare"><a href="#注册Cloudflare" class="headerlink" title="注册Cloudflare"></a>注册Cloudflare</h2><p>接下来我们使用Cloudflare解析域名和内网穿透，前往<a href="https://dash.cloudflare.com/sign-up">https://dash.cloudflare.com/sign-up</a>以注册账户，若显示界面不是中文，请在右上角找到语言设置按钮切换为中文。</p><p>填入电子邮箱和密码，请牢记此密码。</p><p>随后你会收到一封确认邮件，单击其中的链接激活账户。</p><p>接着前往<a href="https://dash.cloudflare.com/">https://dash.cloudflare.com/</a>登录账户，登录成功后你会跳转到控制台，单击<code>添加站点</code>，输入你注册的eu.org域名，此处示例使用的是：<code>yuuki.eu.org</code>。</p><p>Cloudflare会询问你是否导入已有的解析记录，你可以任意选择，随后Cloudflare会要求你更换域名的解析服务，复制它提供的两个解析服务器的域名，然后登录nic.eu.org：<a href="https://nic.eu.org/arf/">https://nic.eu.org/arf/</a></p><p>你会看到你申请的eu.org二级域名，单击其右的<code>►</code>按钮，接着在<code>Edit</code>一栏中单击<code>Nameservers</code>，在<code>Name1</code>和<code>Name2</code>两栏中填入Cloudflare提供的两个解析服务器域名，接着单击<code>Submit</code>提交修改。</p><p>你可能需要等待几小时让Cloudflare确认你已经将DNS解析服务指向它的服务，确认成功后你会收到电子邮件通知。</p><h2 id="安装Cloudflared"><a href="#安装Cloudflared" class="headerlink" title="安装Cloudflared"></a>安装Cloudflared</h2><p>为穿透<a href="https://zh.wikipedia.org/wiki/%E7%94%B5%E4%BF%A1%E7%BA%A7NAT">电信级NAT</a>，我们需要使用内网穿透服务，以下知名服务器提供此服务：</p><ul><li>花生壳</li><li><a href="https://ngrok.com/">Ngrok</a></li><li>Cloudflare Tunnel（另名：Argo Tunnel）</li></ul><p>这里我们选择Cloudflare Tunnel。</p><p>安装其客户端可参考<a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/installation">https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/installation</a>与<a href="https://pkg.cloudflare.com/#ubuntu-title">https://pkg.cloudflare.com/#ubuntu-title</a>的教程（英文）。</p><p>通过ssh连接上树莓派，执行命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/ focal main&#x27;</span> |</span><br><span class="line">sudo <span class="built_in">tee</span> /etc/apt/sources.list.d/cloudflare-main.list</span><br><span class="line">sudo curl https://pkg.cloudflare.com/cloudflare-main.gpg -o /usr/share/keyrings/cloudflare-main.gpg </span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install cloudflared</span><br></pre></td></tr></table></figure><p>接着执行以下命令，授权Cloudflared访问你的域名：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared tunnel login</span><br></pre></td></tr></table></figure><p>浏览器不会自动开启，请复制命令行上输出的网址，粘贴到浏览器中开启，选择你刚刚注册的域名，此处示例使用的是：<code>yuuki.eu.org</code>。</p><p>回到ssh，继续执行命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared tunnel create &lt;隧道名称&gt;</span><br></pre></td></tr></table></figure><p>隧道名称可以填入你能记住的名字，此处示例使用的是：<code>yuuki410</code>。<br>执行完成后输出的信息请记录下来。</p><p>创建一个配置文件：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.cloudflared</span><br><span class="line"><span class="built_in">touch</span> config.yml</span><br><span class="line">name config.yml</span><br></pre></td></tr></table></figure><p>粘贴以下内容，然后按Ctrl+O，回车以保存文件：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">tunnel:</span> <span class="string">yuuki410</span> <span class="comment"># 这是示例，请替换你刚刚填写的隧道名称</span></span><br><span class="line"><span class="attr">credentials-file:</span> <span class="comment"># 请填入 /用户目录路径/.cloudflared/&lt;隧道UUID&gt;.json，在刚才的输出信息中有</span></span><br><span class="line"><span class="attr">ingress:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">hostname:</span> <span class="string">&quot;yuuki.eu.org&quot;</span> <span class="comment"># 这是示例，请替换成你申请的eu.org域名</span></span><br><span class="line">    <span class="attr">service:</span> <span class="string">&quot;http://localhost&quot;</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">hostname:</span> <span class="string">&quot;*.yuuki.eu.org&quot;</span> <span class="comment"># 这是示例，请替换成你申请的eu.org域名</span></span><br><span class="line">    <span class="attr">service:</span> <span class="string">&quot;http://localhost&quot;</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">service:</span> <span class="string">&quot;http_status:404&quot;</span></span><br></pre></td></tr></table></figure><p>接着按Ctrl+X离开编辑器。</p><p>回到ssh，继续执行命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared tunnel route dns &lt;隧道名&gt; &lt;域名&gt;</span><br></pre></td></tr></table></figure><p>隧道名是你之前填入的隧道名称，此处示例使用的是<code>yuuki410</code>；域名是你申请的eu.org域名，此处示例使用的是<code>yuuki.eu.org</code>。</p><p>执行：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared tunnel --config config.yml run</span><br></pre></td></tr></table></figure><p>在浏览器中打开你注册的域名看看有无内容显示出来。</p><h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><p>本教程到此结束。</p><p>要保持你的树莓派可以访问，可以参考我的另一篇博客：<a href="https://blog.yuuki.eu.org/note/Raspi-NAT/#%E4%BD%9C%E4%B8%BA%E6%9C%8D%E5%8A%A1">Raspi NAT 内网穿透§作为服务</a>。</p><p>要搭建网站，例如博客，请自行上网搜索相应教程。</p><h2 id="另外"><a href="#另外" class="headerlink" title="另外"></a>另外</h2><p>这篇估计是目前为止我写的最长的一篇博客了，如果本文对你有帮助的话，不妨到本博客的Github仓库给个Star：<a href="https://github.com/yuuki410/yuuki410.github.io/">https://github.com/yuuki410/yuuki410.github.io/</a>。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;事先声明：&lt;br&gt;本教程的作者&lt;strong&gt;不提供任何担保也不承担任何附带责任&lt;/strong&gt;，若你询问我任何与本教程相关的问题，我可以&lt;em&gt;不回复&lt;/em&gt;、&lt;em&gt;不作出正确回复&lt;/em&gt;、&lt;em&gt;不提供相关资源&lt;/em&gt;。&lt;/p&gt;
+&lt;p&gt;如果你有足够的时间来折腾这些的话，你可以继续看下去，本教程只需要你拥有：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;充裕的时间&lt;/li&gt;
+&lt;li&gt;网络连接&lt;/li&gt;
+&lt;li&gt;电力供应&lt;/li&gt;
+&lt;li&gt;电子邮箱&lt;/li&gt;
+&lt;li&gt;一块Raspberry Pi 4B及其配件（Micro SD卡，电源）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;当你准备好后，请接着往下阅读。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="guide" scheme="https://blog.yuuki.eu.org/categories/guide/"/>
+    
+    
+    <category term="Raspberry Pi" scheme="https://blog.yuuki.eu.org/tags/Raspberry-Pi/"/>
+    
+    <category term="NAT" scheme="https://blog.yuuki.eu.org/tags/NAT/"/>
+    
+    <category term="Cloudflare" scheme="https://blog.yuuki.eu.org/tags/Cloudflare/"/>
+    
+    <category term="Cloudflare Tunnel" scheme="https://blog.yuuki.eu.org/tags/Cloudflare-Tunnel/"/>
+    
+    <category term="Ubuntu" scheme="https://blog.yuuki.eu.org/tags/Ubuntu/"/>
+    
+    <category term="eu.org" scheme="https://blog.yuuki.eu.org/tags/eu-org/"/>
+    
+    <category term="DNS" scheme="https://blog.yuuki.eu.org/tags/DNS/"/>
+    
+    <category term="domain" scheme="https://blog.yuuki.eu.org/tags/domain/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Puppeteer 入门</title>
+    <link href="https://blog.yuuki.eu.org/note/Puppeteer-Begin/"/>
+    <id>https://blog.yuuki.eu.org/note/Puppeteer-Begin/</id>
+    <published>2022-02-05T09:04:51.000Z</published>
+    <updated>2023-01-05T05:46:59.967Z</updated>
+    
+    <content type="html"><![CDATA[<p>入门无头浏览器Puppeteer。</p><p>这是一个node.js包，提供一个自动化测试工具。</p><p>它的社区还很活跃，这是一点好处，另外它使用node.js环境，与浏览器的js相兼容，这是另一点好处。</p><p>最重要的是，只要一行命令就能安装它：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i puppeteer</span><br></pre></td></tr></table></figure><p>(待更新)</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;入门无头浏览器Puppeteer。&lt;/p&gt;
+&lt;p&gt;这是一个node.js包，提供一个自动化测试工具。&lt;/p&gt;
+&lt;p&gt;它的社区还很活跃，这是一点好处，另外它使用node.js环境，与浏览器的js相兼容，这是另一点好处。&lt;/p&gt;
+&lt;p&gt;最重要的是，只要一行命令就能安装它：&lt;/p</summary>
+      
+    
+    
+    
+    <category term="note" scheme="https://blog.yuuki.eu.org/categories/note/"/>
+    
+    
+    <category term="Puppeteer" scheme="https://blog.yuuki.eu.org/tags/Puppeteer/"/>
+    
+    <category term="Node.js" scheme="https://blog.yuuki.eu.org/tags/Node-js/"/>
+    
+    <category term="Chrome" scheme="https://blog.yuuki.eu.org/tags/Chrome/"/>
+    
+    <category term="headless browser" scheme="https://blog.yuuki.eu.org/tags/headless-browser/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>apt连接失败 - 解决方法</title>
+    <link href="https://blog.yuuki.eu.org/guide/apt-connection-failed/"/>
+    <id>https://blog.yuuki.eu.org/guide/apt-connection-failed/</id>
+    <published>2022-01-31T14:25:49.000Z</published>
+    <updated>2023-01-05T05:46:59.970Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>有时候会遇到一些让人火冒三丈的情况：</p><details><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install com.qq.im.deepin -y</span><br><span class="line">正在读取软件包列表... 完成</span><br><span class="line">正在分析软件包的依赖关系树       </span><br><span class="line">正在读取状态信息... 完成</span><br><span class="line">将会同时安装下列软件：</span><br><span class="line">  deepin-wine6-stable deepin-wine6-stable-amd64 deepin-wine6-stable-i386:i386</span><br><span class="line">  fonts-wqy-microhei fonts-wqy-zenhei libatk-bridge2.0-0:i386 libatk1.0-0:i386</span><br><span class="line">  libatspi2.0-0:i386 libcolord2:i386 libepoxy0:i386 libgtk-3-0:i386</span><br><span class="line">  libjson-glib-1.0-0:i386 librest-0.7-0:i386 libsoup-gnome2.4-1:i386</span><br><span class="line">建议安装：</span><br><span class="line">  gvfs:i386</span><br><span class="line">下列【新】软件包将被安装：</span><br><span class="line">  com.qq.im.deepin:i386 deepin-wine6-stable deepin-wine6-stable-amd64</span><br><span class="line">  deepin-wine6-stable-i386:i386 fonts-wqy-microhei fonts-wqy-zenhei</span><br><span class="line">  libatk-bridge2.0-0:i386 libatk1.0-0:i386 libatspi2.0-0:i386 libcolord2:i386</span><br><span class="line">  libepoxy0:i386 libgtk-3-0:i386 libjson-glib-1.0-0:i386 librest-0.7-0:i386</span><br><span class="line">  libsoup-gnome2.4-1:i386</span><br><span class="line">升级了 0 个软件包，新安装了 15 个软件包，要卸载 0 个软件包，有 0 个软件包未被升级。</span><br><span class="line">需要下载 9,075 kB/194 MB 的归档。</span><br><span class="line">解压缩后会消耗 668 MB 的额外空间。</span><br><span class="line">忽略:1 http://archive.ubuntu.com/ubuntu focal/universe amd64 fonts-wqy-zenhei all 0.9.45-7ubuntu1</span><br><span class="line">忽略:2 http://archive.ubuntu.com/ubuntu focal/universe amd64 fonts-wqy-microhei all 0.2.0-beta-3</span><br><span class="line">错误:1 http://archive.ubuntu.com/ubuntu focal/universe amd64 fonts-wqy-zenhei all 0.9.45-7ubuntu1</span><br><span class="line">  连接失败 [IP: 91.189.88.152 80]</span><br><span class="line">错误:2 http://archive.ubuntu.com/ubuntu focal/universe amd64 fonts-wqy-microhei all 0.2.0-beta-3</span><br><span class="line">  连接失败 [IP: 91.189.88.152 80]</span><br><span class="line">E: 无法下载 http://archive.ubuntu.com/ubuntu/pool/universe/f/fonts-wqy-zenhei/fonts-wqy-zenhei_0.9.45-7ubuntu1_all.deb  连接失败 [IP: 91.189.88.152 80]</span><br><span class="line">E: 无法下载 http://archive.ubuntu.com/ubuntu/pool/universe/f/fonts-wqy-microhei/fonts-wqy-microhei_0.2.0-beta-3_all.deb  连接失败 [IP: 91.189.88.152 80]</span><br><span class="line">E: 有几个软件包无法下载，要不运行 apt-get update 或者加上 --fix-missing 的选项再试试？</span><br></pre></td></tr></table></figure></details><p>试过apt提示的方法却无效……仍然显示相同的错误。</p><h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>经查，可以手动下载失败的包，然后把文件移动到<code>/var/cache/apt/archives</code>就能被apt找到了（别问为什么会出现上述问题，问就是没文化）。</p><span id="more"></span><p>我运行的命令是：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/cache/apt/archives</span><br><span class="line">wget http://archive.ubuntu.com/ubuntu/pool/universe/f/fonts-wqy-zenhei/fonts-wqy-zenhei_0.9.45-7ubuntu1_all.deb</span><br><span class="line">http://archive.ubuntu.com/ubuntu/pool/universe/f/fonts-wqy-microhei/fonts-wqy-microhei_0.2.0-beta-3_all.deb</span><br></pre></td></tr></table></figure><p>好，现在可以舒服地安装了！</p><details><summray>命令及输出</summray><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install com.qq.im.deepin -y</span><br><span class="line">正在读取软件包列表... 完成</span><br><span class="line">正在分析软件包的依赖关系树       </span><br><span class="line">正在读取状态信息... 完成</span><br><span class="line">将会同时安装下列软件：</span><br><span class="line">  deepin-wine6-stable deepin-wine6-stable-amd64 deepin-wine6-stable-i386:i386</span><br><span class="line">  fonts-wqy-microhei fonts-wqy-zenhei libatk-bridge2.0-0:i386 libatk1.0-0:i386</span><br><span class="line">  libatspi2.0-0:i386 libcolord2:i386 libepoxy0:i386 libgtk-3-0:i386</span><br><span class="line">  libjson-glib-1.0-0:i386 librest-0.7-0:i386 libsoup-gnome2.4-1:i386</span><br><span class="line">建议安装：</span><br><span class="line">  gvfs:i386</span><br><span class="line">下列【新】软件包将被安装：</span><br><span class="line">  com.qq.im.deepin:i386 deepin-wine6-stable deepin-wine6-stable-amd64</span><br><span class="line">  deepin-wine6-stable-i386:i386 fonts-wqy-microhei fonts-wqy-zenhei</span><br><span class="line">  libatk-bridge2.0-0:i386 libatk1.0-0:i386 libatspi2.0-0:i386 libcolord2:i386</span><br><span class="line">  libepoxy0:i386 libgtk-3-0:i386 libjson-glib-1.0-0:i386 librest-0.7-0:i386</span><br><span class="line">  libsoup-gnome2.4-1:i386</span><br><span class="line">升级了 0 个软件包，新安装了 15 个软件包，要卸载 0 个软件包，有 0 个软件包未被升级。</span><br><span class="line">需要下载 0 B/194 MB 的归档。</span><br><span class="line">解压缩后会消耗 668 MB 的额外空间。</span><br><span class="line">正在选中未选择的软件包 libatk1.0-0:i386。</span><br><span class="line">(正在读取数据库 ... 系统当前共安装有 280330 个文件和目录。)</span><br><span class="line">准备解压 .../00-libatk1.0-0_2.35.1-1ubuntu2_i386.deb  ...</span><br><span class="line">正在解压 libatk1.0-0:i386 (2.35.1-1ubuntu2) ...</span><br><span class="line">正在选中未选择的软件包 libatspi2.0-0:i386。</span><br><span class="line">准备解压 .../01-libatspi2.0-0_2.36.0-2_i386.deb  ...</span><br><span class="line">正在解压 libatspi2.0-0:i386 (2.36.0-2) ...</span><br><span class="line">正在选中未选择的软件包 libatk-bridge2.0-0:i386。</span><br><span class="line">准备解压 .../02-libatk-bridge2.0-0_2.34.2-0ubuntu2~20.04.1_i386.deb  ...</span><br><span class="line">正在解压 libatk-bridge2.0-0:i386 (2.34.2-0ubuntu2~20.04.1) ...</span><br><span class="line">正在选中未选择的软件包 libcolord2:i386。</span><br><span class="line">准备解压 .../03-libcolord2_1.4.4-2_i386.deb  ...</span><br><span class="line">正在解压 libcolord2:i386 (1.4.4-2) ...</span><br><span class="line">正在选中未选择的软件包 libepoxy0:i386。</span><br><span class="line">准备解压 .../04-libepoxy0_1.5.4-1_i386.deb  ...</span><br><span class="line">正在解压 libepoxy0:i386 (1.5.4-1) ...</span><br><span class="line">正在选中未选择的软件包 libjson-glib-1.0-0:i386。</span><br><span class="line">准备解压 .../05-libjson-glib-1.0-0_1.4.4-2ubuntu2_i386.deb  ...</span><br><span class="line">正在解压 libjson-glib-1.0-0:i386 (1.4.4-2ubuntu2) ...</span><br><span class="line">正在选中未选择的软件包 libsoup-gnome2.4-1:i386。</span><br><span class="line">准备解压 .../06-libsoup-gnome2.4-1_2.70.0-1_i386.deb  ...</span><br><span class="line">正在解压 libsoup-gnome2.4-1:i386 (2.70.0-1) ...</span><br><span class="line">正在选中未选择的软件包 librest-0.7-0:i386。</span><br><span class="line">准备解压 .../07-librest-0.7-0_0.8.1-1_i386.deb  ...</span><br><span class="line">正在解压 librest-0.7-0:i386 (0.8.1-1) ...</span><br><span class="line">正在选中未选择的软件包 libgtk-3-0:i386。</span><br><span class="line">准备解压 .../08-libgtk-3-0_3.24.20-0ubuntu1_i386.deb  ...</span><br><span class="line">正在解压 libgtk-3-0:i386 (3.24.20-0ubuntu1) ...</span><br><span class="line">正在选中未选择的软件包 deepin-wine6-stable-i386:i386。</span><br><span class="line">准备解压 .../09-deepin-wine6-stable-i386_6.0.0.19-1_i386.deb  ...</span><br><span class="line">正在解压 deepin-wine6-stable-i386:i386 (6.0.0.19-1) ...</span><br><span class="line">正在选中未选择的软件包 deepin-wine6-stable-amd64。</span><br><span class="line">准备解压 .../10-deepin-wine6-stable-amd64_6.0.0.19-1_amd64.deb  ...</span><br><span class="line">正在解压 deepin-wine6-stable-amd64 (6.0.0.19-1) ...</span><br><span class="line">正在选中未选择的软件包 deepin-wine6-stable。</span><br><span class="line">准备解压 .../11-deepin-wine6-stable_6.0.0.19-1_amd64.deb  ...</span><br><span class="line">正在解压 deepin-wine6-stable (6.0.0.19-1) ...</span><br><span class="line">正在选中未选择的软件包 fonts-wqy-zenhei。</span><br><span class="line">准备解压 .../12-fonts-wqy-zenhei_0.9.45-7ubuntu1_all.deb  ...</span><br><span class="line">正在解压 fonts-wqy-zenhei (0.9.45-7ubuntu1) ...</span><br><span class="line">正在选中未选择的软件包 fonts-wqy-microhei。</span><br><span class="line">准备解压 .../13-fonts-wqy-microhei_0.2.0-beta-3_all.deb  ...</span><br><span class="line">正在解压 fonts-wqy-microhei (0.2.0-beta-3) ...</span><br><span class="line">正在选中未选择的软件包 com.qq.im.deepin:i386。</span><br><span class="line">准备解压 .../14-com.qq.im.deepin_9.4.9.27849deepin5_i386.deb  ...</span><br><span class="line">正在解压 com.qq.im.deepin:i386 (9.4.9.27849deepin5) ...</span><br><span class="line">正在设置 deepin-wine6-stable-amd64 (6.0.0.19-1) ...</span><br><span class="line">正在设置 fonts-wqy-zenhei (0.9.45-7ubuntu1) ...</span><br><span class="line">正在设置 libatspi2.0-0:i386 (2.36.0-2) ...</span><br><span class="line">正在设置 libcolord2:i386 (1.4.4-2) ...</span><br><span class="line">正在设置 fonts-wqy-microhei (0.2.0-beta-3) ...</span><br><span class="line">正在设置 libjson-glib-1.0-0:i386 (1.4.4-2ubuntu2) ...</span><br><span class="line">正在设置 libepoxy0:i386 (1.5.4-1) ...</span><br><span class="line">正在设置 libatk1.0-0:i386 (2.35.1-1ubuntu2) ...</span><br><span class="line">正在设置 libsoup-gnome2.4-1:i386 (2.70.0-1) ...</span><br><span class="line">正在设置 librest-0.7-0:i386 (0.8.1-1) ...</span><br><span class="line">正在设置 libatk-bridge2.0-0:i386 (2.34.2-0ubuntu2~20.04.1) ...</span><br><span class="line">正在设置 libgtk-3-0:i386 (3.24.20-0ubuntu1) ...</span><br><span class="line">正在设置 deepin-wine6-stable-i386:i386 (6.0.0.19-1) ...</span><br><span class="line">正在设置 deepin-wine6-stable (6.0.0.19-1) ...</span><br><span class="line">正在设置 com.qq.im.deepin:i386 (9.4.9.27849deepin5) ...</span><br><span class="line">正在处理用于 libc-bin (2.31-0ubuntu9.2) 的触发器 ...</span><br><span class="line">正在处理用于 fontconfig (2.13.1-2ubuntu3) 的触发器 ...</span><br></pre></td></tr></table></figure></details><h2 id="另外"><a href="#另外" class="headerlink" title="另外"></a>另外</h2><p>有时候会遇到一个软件包移动到他处的情况，这时候只能花点时间更换一些旧源或者手动下载新的包然后改名在存到apt缓存目录下了。</p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;有时候会遇到一些让人火冒三丈的情况：&lt;/p&gt;
+&lt;details&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ sudo apt install com.qq.im.deepin -y&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;正在读取软件包列表... 完成&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;正在分析软件包的依赖关系树       &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;正在读取状态信息... 完成&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;将会同时安装下列软件：&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  deepin-wine6-stable deepin-wine6-stable-amd64 deepin-wine6-stable-i386:i386&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  fonts-wqy-microhei fonts-wqy-zenhei libatk-bridge2.0-0:i386 libatk1.0-0:i386&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  libatspi2.0-0:i386 libcolord2:i386 libepoxy0:i386 libgtk-3-0:i386&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  libjson-glib-1.0-0:i386 librest-0.7-0:i386 libsoup-gnome2.4-1:i386&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;建议安装：&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  gvfs:i386&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;下列【新】软件包将被安装：&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  com.qq.im.deepin:i386 deepin-wine6-stable deepin-wine6-stable-amd64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  deepin-wine6-stable-i386:i386 fonts-wqy-microhei fonts-wqy-zenhei&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  libatk-bridge2.0-0:i386 libatk1.0-0:i386 libatspi2.0-0:i386 libcolord2:i386&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  libepoxy0:i386 libgtk-3-0:i386 libjson-glib-1.0-0:i386 librest-0.7-0:i386&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  libsoup-gnome2.4-1:i386&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;升级了 0 个软件包，新安装了 15 个软件包，要卸载 0 个软件包，有 0 个软件包未被升级。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;需要下载 9,075 kB/194 MB 的归档。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;解压缩后会消耗 668 MB 的额外空间。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;忽略:1 http://archive.ubuntu.com/ubuntu focal/universe amd64 fonts-wqy-zenhei all 0.9.45-7ubuntu1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;忽略:2 http://archive.ubuntu.com/ubuntu focal/universe amd64 fonts-wqy-microhei all 0.2.0-beta-3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;错误:1 http://archive.ubuntu.com/ubuntu focal/universe amd64 fonts-wqy-zenhei all 0.9.45-7ubuntu1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  连接失败 [IP: 91.189.88.152 80]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;错误:2 http://archive.ubuntu.com/ubuntu focal/universe amd64 fonts-wqy-microhei all 0.2.0-beta-3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  连接失败 [IP: 91.189.88.152 80]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;E: 无法下载 http://archive.ubuntu.com/ubuntu/pool/universe/f/fonts-wqy-zenhei/fonts-wqy-zenhei_0.9.45-7ubuntu1_all.deb  连接失败 [IP: 91.189.88.152 80]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;E: 无法下载 http://archive.ubuntu.com/ubuntu/pool/universe/f/fonts-wqy-microhei/fonts-wqy-microhei_0.2.0-beta-3_all.deb  连接失败 [IP: 91.189.88.152 80]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;E: 有几个软件包无法下载，要不运行 apt-get update 或者加上 --fix-missing 的选项再试试？&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/details&gt;
+
+&lt;p&gt;试过apt提示的方法却无效……仍然显示相同的错误。&lt;/p&gt;
+&lt;h2 id=&quot;解决&quot;&gt;&lt;a href=&quot;#解决&quot; class=&quot;headerlink&quot; title=&quot;解决&quot;&gt;&lt;/a&gt;解决&lt;/h2&gt;&lt;p&gt;经查，可以手动下载失败的包，然后把文件移动到&lt;code&gt;/var/cache/apt/archives&lt;/code&gt;就能被apt找到了（别问为什么会出现上述问题，问就是没文化）。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="guide" scheme="https://blog.yuuki.eu.org/categories/guide/"/>
+    
+    
+    <category term="apt" scheme="https://blog.yuuki.eu.org/tags/apt/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML &amp;lt;details&amp;gt; 标签</title>
+    <link href="https://blog.yuuki.eu.org/guide/HTML-details-tag/"/>
+    <id>https://blog.yuuki.eu.org/guide/HTML-details-tag/</id>
+    <published>2022-01-31T09:48:36.000Z</published>
+    <updated>2023-01-05T05:46:59.964Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>参考：<a href="https://www.w3schools.com/tags/tag_details.asp">https://www.w3schools.com/tags/tag_details.asp</a></p></blockquote><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">details</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">summary</span>&gt;</span>示例<span class="tag">&lt;/<span class="name">summary</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>一段文字<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">details</span>&gt;</span></span><br></pre></td></tr></table></figure><details>    <summary>示例</summary>    <p>一段文字</p></details><p>当然，如果你在markdown中使用它，可以稍微简化一点：</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">details</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">summary</span>&gt;</span></span>Markdown示例<span class="language-xml"><span class="tag">&lt;/<span class="name">summary</span>&gt;</span></span></span><br><span class="line">一段文字</span><br><span class="line"></span><br><span class="line">另一段文字</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">details</span>&gt;</span></span></span><br></pre></td></tr></table></figure><details><summary>Markdown示例</summary>一段文字<p>另一段文字</p></details><p>另外，<code>&lt;summary&gt;</code>标签是可选的。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;参考：&lt;a href=&quot;https://www.w3schools.com/tags/tag_details.asp&quot;&gt;https://www.w3schools.com/tags/tag_details.asp&lt;/a&gt;&lt;/p&gt;
+&lt;/blockqu</summary>
+      
+    
+    
+    
+    <category term="guide" scheme="https://blog.yuuki.eu.org/categories/guide/"/>
+    
+    
+    <category term="HTML" scheme="https://blog.yuuki.eu.org/tags/HTML/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Anbox安装apk包</title>
+    <link href="https://blog.yuuki.eu.org/note/Anbox-install-apk/"/>
+    <id>https://blog.yuuki.eu.org/note/Anbox-install-apk/</id>
+    <published>2022-01-31T06:28:43.000Z</published>
+    <updated>2023-01-05T05:46:59.964Z</updated>
+    
+    <content type="html"><![CDATA[<p>首先确认emulator的连接：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">which</span> adb</span><br><span class="line">/usr/bin/adb</span><br><span class="line">$ adb devices        </span><br><span class="line">List of devices attached</span><br><span class="line">emulator-5558device</span><br></pre></td></tr></table></figure><p>然后就可以安装apk包了，文件名最好不要带特殊字符，例如汉字：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb install Downloads/myapp.apk</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;首先确认emulator的连接：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;</summary>
+      
+    
+    
+    
+    <category term="note" scheme="https://blog.yuuki.eu.org/categories/note/"/>
+    
+    
+    <category term="Anbox" scheme="https://blog.yuuki.eu.org/tags/Anbox/"/>
+    
+    <category term="adb" scheme="https://blog.yuuki.eu.org/tags/adb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>注销 Gnome Ctrl+Alt+Down/Up 快捷键</title>
+    <link href="https://blog.yuuki.eu.org/guide/Disable-Gnome-Ctrl-Alt-Down-Up-Shortcut/"/>
+    <id>https://blog.yuuki.eu.org/guide/Disable-Gnome-Ctrl-Alt-Down-Up-Shortcut/</id>
+    <published>2022-01-25T06:10:28.000Z</published>
+    <updated>2023-01-05T05:46:59.964Z</updated>
+    
+    <content type="html"><![CDATA[<p>由于Gnome的<code>Ctrl-Alt-Down/Up</code>快捷键和Discord冲突，使用体验很糟糕。</p><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install dconf-editor</span><br><span class="line">dconf-editor</span><br></pre></td></tr></table></figure><p>进入目录<code>/org/gnome/desktop/wm/keybindings/</code>，查找<code>switch-to-workspace-down</code>和<code>switch-to-workspace-up</code>，更改其值。</p><p>若要禁用则设置为<code>[&#39;disabled&#39;]</code></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://unix.stackexchange.com/questions/394143/how-to-disable-gnome-ctrlaltdown-and-ctrlaltup-shortcut/420395">https://unix.stackexchange.com/questions/394143/how-to-disable-gnome-ctrlaltdown-and-ctrlaltup-shortcut/420395</a></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;由于Gnome的&lt;code&gt;Ctrl-Alt-Down/Up&lt;/code&gt;快捷键和Discord冲突，使用体验很糟糕。&lt;/p&gt;
+&lt;h2 id=&quot;步骤&quot;&gt;&lt;a href=&quot;#步骤&quot; class=&quot;headerlink&quot; title=&quot;步骤&quot;&gt;&lt;/a&gt;步骤&lt;/h2&gt;&lt;figur</summary>
+      
+    
+    
+    
+    <category term="guide" scheme="https://blog.yuuki.eu.org/categories/guide/"/>
+    
+    
+    <category term="Gnome" scheme="https://blog.yuuki.eu.org/tags/Gnome/"/>
+    
+    <category term="Shortcut" scheme="https://blog.yuuki.eu.org/tags/Shortcut/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Raspi NAT内网穿透</title>
+    <link href="https://blog.yuuki.eu.org/note/Raspi-NAT/"/>
+    <id>https://blog.yuuki.eu.org/note/Raspi-NAT/</id>
+    <published>2021-12-11T11:27:46.000Z</published>
+    <updated>2023-01-05T05:46:59.967Z</updated>
+    
+    <content type="html"><![CDATA[<p>首先选择你要使用的NAT服务商：</p><ul><li><a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup">Clouflare Tunnel (Argo Tunnel)</a></li><li><a href="https://www.cpolar.com/">Cpolar</a></li><li><a href="www.nat123.com/">NAT123</a></li><li><a href="https://ngrok.com/">Ngrok</a></li><li><a href="https://ngrok.cc/">Ngrok CC</a></li></ul><p>下面只叙述Cloudflare Tunnel的用法。</p><h2 id="注册CF账户"><a href="#注册CF账户" class="headerlink" title="注册CF账户"></a>注册CF账户</h2><h2 id="下载服务端"><a href="#下载服务端" class="headerlink" title="下载服务端"></a>下载服务端</h2><p>你可以在<a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/installation">这里</a>找到适合你的设备的包。</p><h2 id="登录账户"><a href="#登录账户" class="headerlink" title="登录账户"></a>登录账户</h2><p>在命令行执行：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared tunnel login</span><br></pre></td></tr></table></figure><p>这会打开浏览器要求你选择一个域名来部署。</p><h2 id="创建隧道"><a href="#创建隧道" class="headerlink" title="创建隧道"></a>创建隧道</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared tunnel create &lt;隧道名&gt;</span><br></pre></td></tr></table></figure><h3 id="创建隧道配置"><a href="#创建隧道配置" class="headerlink" title="创建隧道配置"></a>创建隧道配置</h3><p>将以下信息写入一个<code>yaml</code>文件中：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">tunnel:</span> <span class="string">&lt;隧道UUID，就是你执行了创建隧道后返回的那串，填隧道名也可以&gt;</span></span><br><span class="line"><span class="attr">credentials-file:</span> <span class="string">(通常是)</span> <span class="string">/用户目录/.cloudflared/&lt;隧道UUID&gt;.json</span></span><br></pre></td></tr></table></figure><h3 id="DNS记录"><a href="#DNS记录" class="headerlink" title="DNS记录"></a>DNS记录</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared tunnel route dns &lt;隧道UUID或隧道名&gt; &lt;域名，如www.example.com&gt;</span><br></pre></td></tr></table></figure><p>注意这里的域名必须是你托管在cf上的。</p><h3 id="运行隧道"><a href="#运行隧道" class="headerlink" title="运行隧道"></a>运行隧道</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared tunnel --config &lt;配置文件路径&gt; run</span><br></pre></td></tr></table></figure><h2 id="作为服务"><a href="#作为服务" class="headerlink" title="作为服务"></a>作为服务</h2><p>当然，我们不能让隧道每次都要手动启动，也不能开个screen放着。</p><p>执行下面的命令即可注册系统服务：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared --config &lt;配置文件路径&gt; service install</span><br></pre></td></tr></table></figure><p>经过实测，不知道为什么在ubuntu服务器上死活识别不了默认配置文件路径，所以这里就不放默认方法了。</p><p>启动服务的命令：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start cloudflared</span><br></pre></td></tr></table></figure><p>设置开机启动服务：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> cloudflared</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;首先选择你要使用的NAT服务商：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup&quot;&gt;Clouf</summary>
+      
+    
+    
+    
+    <category term="note" scheme="https://blog.yuuki.eu.org/categories/note/"/>
+    
+    
+    <category term="Raspberry Pi" scheme="https://blog.yuuki.eu.org/tags/Raspberry-Pi/"/>
+    
+    <category term="NAT" scheme="https://blog.yuuki.eu.org/tags/NAT/"/>
+    
+    <category term="Cloudflare" scheme="https://blog.yuuki.eu.org/tags/Cloudflare/"/>
+    
+    <category term="Cloudflare Tunnel" scheme="https://blog.yuuki.eu.org/tags/Cloudflare-Tunnel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Raspi VNC连接分辨率调整</title>
+    <link href="https://blog.yuuki.eu.org/guide/Raspi-VNC-DPI/"/>
+    <id>https://blog.yuuki.eu.org/guide/Raspi-VNC-DPI/</id>
+    <published>2021-12-11T10:42:35.000Z</published>
+    <updated>2023-01-05T05:46:59.967Z</updated>
+    
+    <content type="html"><![CDATA[<p>树莓派默认的分辨率是480p……其酸爽程度自行体会……</p><p>ssh连上树莓派，一句话解决分辨率问题：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncserver -geometry 1920x1080</span><br></pre></td></tr></table></figure><p>当然，这么做只能暂时性地解决问题。其原理是启动了另一个VNC Server进程</p><p>一劳永逸的方法是改设置：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/sysconfig/vncservers</span><br></pre></td></tr></table></figure><p>配置文件简明易懂，记得备份好就行。</p><blockquote><p><strong>参考：</strong></p></blockquote><ul><li><a href="https://blog.csdn.net/runningtortoises/article/details/51425332">https://blog.csdn.net/runningtortoises/article/details/51425332</a></li></ul><hr><p>新系统的<code>/etc/sysconfig</code>貌似移动到了别处，可用<code>sudo raspi-config</code> &gt; <code>2 Display Options</code> &gt; <code>D1 Resolution</code>设置分辨率，这会同时应用到显示器和VNC。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;树莓派默认的分辨率是480p……其酸爽程度自行体会……&lt;/p&gt;
+&lt;p&gt;ssh连上树莓派，一句话解决分辨率问题：&lt;/p&gt;
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;</summary>
+      
+    
+    
+    
+    <category term="guide" scheme="https://blog.yuuki.eu.org/categories/guide/"/>
+    
+    
+    <category term="Raspberry Pi" scheme="https://blog.yuuki.eu.org/tags/Raspberry-Pi/"/>
+    
+    <category term="VNC" scheme="https://blog.yuuki.eu.org/tags/VNC/"/>
+    
+    <category term="RealVNC" scheme="https://blog.yuuki.eu.org/tags/RealVNC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sudo命令免密码</title>
+    <link href="https://blog.yuuki.eu.org/guide/nopasswd-sudo/"/>
+    <id>https://blog.yuuki.eu.org/guide/nopasswd-sudo/</id>
+    <published>2021-09-25T08:30:13.000Z</published>
+    <updated>2023-01-05T05:46:59.970Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>每次打开apt，改hosts都要输密码，烦死了……</p></blockquote><p>键入命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo visudo</span><br></pre></td></tr></table></figure><p>若不能，直接开启配置文件：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/sudoers</span><br></pre></td></tr></table></figure><h2 id="法一：修改用户权限"><a href="#法一：修改用户权限" class="headerlink" title="法一：修改用户权限"></a>法一：修改用户权限</h2><p>于末尾加入行：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;YOUR USER NAME&gt;ALL=(ALL:ALL) NOPASSWD:ALL</span><br></pre></td></tr></table></figure><p>例如我的用户名为<code>yuuki410</code>，在末尾加入行：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yuuki410ALL=(ALL:ALL) NOPASSWD:ALL</span><br></pre></td></tr></table></figure><p>注意在末尾加入，否则将被用户组设置覆盖。</p><span id="more"></span><h2 id="法二：修改用户组权限"><a href="#法二：修改用户组权限" class="headerlink" title="法二：修改用户组权限"></a>法二：修改用户组权限</h2><p>查询当前用户组：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">groups</span></span><br></pre></td></tr></table></figure><p>然后更新用户组设置：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%&lt;GROUP NAME&gt;ALL=(ALL:ALL) NOPASSWD:ALL</span><br></pre></td></tr></table></figure><p>例如我更新了<code>sudo</code>组，便将：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%sudoALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure><p>替换为：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%sudoALL=(ALL:ALL) NOPASSWD:ALL</span><br></pre></td></tr></table></figure><p><code>Ubuntu 20</code>测试通过。</p>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;每次打开apt，改hosts都要输密码，烦死了……&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;键入命令：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo visudo&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;若不能，直接开启配置文件：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo vi /etc/sudoers&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;法一：修改用户权限&quot;&gt;&lt;a href=&quot;#法一：修改用户权限&quot; class=&quot;headerlink&quot; title=&quot;法一：修改用户权限&quot;&gt;&lt;/a&gt;法一：修改用户权限&lt;/h2&gt;&lt;p&gt;于末尾加入行：&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;YOUR USER NAME&amp;gt;	ALL=(ALL:ALL) NOPASSWD:ALL&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;例如我的用户名为&lt;code&gt;yuuki410&lt;/code&gt;，在末尾加入行：&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yuuki410	ALL=(ALL:ALL) NOPASSWD:ALL&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;注意在末尾加入，否则将被用户组设置覆盖。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="guide" scheme="https://blog.yuuki.eu.org/categories/guide/"/>
+    
+    
+    <category term="Linux" scheme="https://blog.yuuki.eu.org/tags/Linux/"/>
+    
+    <category term="Ubuntu" scheme="https://blog.yuuki.eu.org/tags/Ubuntu/"/>
+    
+    <category term="sudo" scheme="https://blog.yuuki.eu.org/tags/sudo/"/>
+    
+  </entry>
+  
+</feed>

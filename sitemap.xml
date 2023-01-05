@@ -1,0 +1,747 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/note/pkg-config-and-libcrypto/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/guide/pm2/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/guide/ubuntu-20-enble-root-user/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/diary/swap-feeling/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/about/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/archives/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/categories/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/collection/Yandere/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/guide/apt-connection-failed/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/guide/code-server/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/guide/creat-blog/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/guide/Windows/fuck-to-vscode/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/guide/hexo-action/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/guide/nopasswd-sudo/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/note/Mirror-a-site-by-using-wget/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/note/Puppeteer-Begin/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/note/Raspi-NAT/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/guide/Raspi-VNC-DPI/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/guide/Safely-remove-flash-disk-from-Linux/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/guide/Setup-a-website-with-Raspberry-Pi-4B/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/guide/Wine-GBK-Encoding/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/guide/Anaconda-crash-command-Solution/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/note/Anbox-install-apk/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/note/Arch-Linux/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/note/CSP-S2019-bark/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/note/CSP-S2019-graycode/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/note/Dev-Shuen/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/guide/Disable-Gnome-Ctrl-Alt-Down-Up-Shortcut/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/guide/HTML-details-tag/</loc>
+    
+    <lastmod>2023-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+
+  <url>
+    <loc>https://blog.yuuki.eu.org/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/Linux/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/Anaconda/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/IBus/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/python/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/terminal/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/Anbox/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/adb/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/Arch-Linux/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/CSP-S/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/CSP-S2019/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/Node/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/Electron/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/Webpack/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/Chalk/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/pnpm/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/Gnome/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/Shortcut/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/HTML/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/wget/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/Web/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/Puppeteer/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/Node-js/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/Chrome/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/headless-browser/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/Raspberry-Pi/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/NAT/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/Cloudflare/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/Cloudflare-Tunnel/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/VNC/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/RealVNC/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/mount/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/udisksctl/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/Ubuntu/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/eu-org/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/DNS/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/domain/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/wine/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/GBK/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/GB18030/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/GB2312/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/Encoding/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/%E4%B9%B1%E7%A0%81/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/yandere/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/apt/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/VS-Code/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/web-server/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/Hexo/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/Git/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/NexT-Theme/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/GitHub/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/GitHub-Pages/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/VSCode/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/Unicode/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/Windows/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/GitHub-Action/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/sudo/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/pkg-config/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/libcrypto/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/pm2/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/tags/root/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/categories/guide/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/categories/note/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/categories/collection/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/categories/guide/Windows/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.yuuki.eu.org/categories/diary/</loc>
+    <lastmod>2023-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+</urlset>
