@@ -1,6 +1,7 @@
 ---
 title: Anaconda crash command Solution
 date: 2023-01-03 20:08:09
+updated: 2023-01-06 15:25:44
 categories:
 - guide
 tags:
@@ -71,3 +72,12 @@ printenv | grep PATH
 export PATH=/home/yuuki410/.local/bin:/opt/gcc-arm-none-eabi-10.3-2021.10/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/home/yuuki410/.dotnet/tools:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
 WINDOWPATH=1
 ```
+
+## Anaconda with SSL CA Certificates
+
+When your try to access the certificates file:
+```bash
+~/.cache/yay/anaconda/pkg/anaconda/opt/anaconda/ssl/certs/ca-certificates.crt: No such file or directory
+```
+
+Solution is same to [Anaconda with `ibus`](#Anaconda-with-ibus).
