@@ -8,6 +8,10 @@ tags:
 - libcrypto++
 ---
 
+{% note danger %}
+本文内容已过期。
+{% endnote %}
+
 Ubuntu:  
 ```bash
 sudo apt-get install libcrypto++6 libcrypto++-dev -y
