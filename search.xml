@@ -33,14 +33,17 @@
 <p><a href="https://blog.csdn.net/weixin_30764771/article/details/96301488">https://blog.csdn.net/weixin_30764771/article/details/96301488</a></p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Check where Anaconda is</span></span><br><span class="line">whereis anaconda <span class="comment"># anaconda: /opt/anaconda/bin/anaconda</span></span><br><span class="line"><span class="comment"># Disable it</span></span><br><span class="line">sudo <span class="built_in">chmod</span> 000 /opt/anaconda/</span><br></pre></td></tr></table></figure>
-
+<span id="more"></span>
 <h3 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Check your $PATH</span></span><br><span class="line"><span class="built_in">printenv</span> | grep PATH </span><br><span class="line"><span class="comment"># my $PATH:</span></span><br><span class="line"><span class="comment"># PATH=/opt/anaconda/bin:/opt/anaconda/condabin:/home/yuuki410/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set an new $PATH without Anaconda</span></span><br><span class="line"><span class="built_in">export</span> PATH=/home/yuuki410/.local/bin:/opt/gcc-arm-none-eabi-10.3-2021.10/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/home/yuuki410/.dotnet/tools:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl</span><br><span class="line">WINDOWPATH=1</span><br></pre></td></tr></table></figure>
 
 <h2 id="Anaconda-with-SSL-CA-Certificates"><a href="#Anaconda-with-SSL-CA-Certificates" class="headerlink" title="Anaconda with SSL CA Certificates"></a>Anaconda with SSL CA Certificates</h2><p>When your try to access the certificates file:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">~/.cache/yay/anaconda/pkg/anaconda/opt/anaconda/ssl/certs/ca-certificates.crt: No such file or directory</span><br></pre></td></tr></table></figure>
 
-<p>Solution is same to <a href="#Anaconda-with-ibus">Anaconda with <code>ibus</code></a>.</p>
-]]></content>
+<blockquote>
+<p>Solution from Stackoverflow:<br><a href="https://stackoverflow.com/questions/3160909/how-do-i-deal-with-certificates-using-curl-while-trying-to-access-an-https-url#answer-31060428">https://stackoverflow.com/questions/3160909/how-do-i-deal-with-certificates-using-curl-while-trying-to-access-an-https-url#answer-31060428</a>  </p>
+<img src="/guide/Anaconda-crash-command-Solution/Screenshot%202023-01-07%20at%2011-58-17%20How%20do%20I%20deal%20with%20certificates%20using%20cURL%20while%20trying%20to%20access%20an%20HTTPS%20url.png" class="">
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt&quot;</span> &gt;&gt; .zshrc</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>guide</category>
       </categories>
@@ -237,6 +240,36 @@
       </categories>
       <tags>
         <tag>HTML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Insert your PGP Public Key Block when VIMing</title>
+    <url>/guide/Insert-your-PGP-Public-Key-Block-when-VIMing/</url>
+    <content><![CDATA[<p>Vim功能：按下两次 <a class="btn" href="#">!</a> 可执行外部命令并把命令输出插入到光标所在位置。</p>
+<p>ZSH功能：可使用<code>alias</code>设置命令别名。</p>
+<figure class="highlight bash"><figcaption><span>~/.zshenv</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="built_in">alias</span> -g mypgp=<span class="string">&quot;gpg --armor --export &lt;PGP-Public-Key-ID&gt;&quot;</span></span><br></pre></td></tr></table></figure>
+<div class="note info"><p>您可以自由更改<code>mygpg</code>为任何您想要的别名。</p>
+</div>
+
+<p>使用<code>.zshenv</code>可以让设置全局生效，只要命令通过zsh执行（除非使用<code>-f</code>选项指定了脚本）。</p>
+<div class="note info"><p>您可以尝试将上述内容添加到<code>.zshrc</code>然后试验一下效果，您将可以在TTY和Terminal环境下使用别名（alias），但是不能在Vim中通过外部命令执行alias。</p>
+</div>
+
+<p>然后，在Vim中尝试：</p>
+<ol>
+<li>按下两次 <a class="btn" href="#">!</a></li>
+<li>键入<code>mypgp</code></li>
+</ol>
+<p>大功告成，你也可以把相同的方法运用在其它命令上。</p>
+]]></content>
+      <categories>
+        <category>guide</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Vim</tag>
+        <tag>PGP</tag>
+        <tag>zsh</tag>
       </tags>
   </entry>
   <entry>
@@ -820,7 +853,10 @@
   <entry>
     <title>pkg-config and libcrypto++</title>
     <url>/note/pkg-config-and-libcrypto/</url>
-    <content><![CDATA[<p>Ubuntu:  </p>
+    <content><![CDATA[<div class="note danger"><p>本文内容已过期。</p>
+</div>
+
+<p>Ubuntu:  </p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libcrypto++6 libcrypto++-dev -y</span><br><span class="line">pkg-config --cflags libcrypto++</span><br></pre></td></tr></table></figure>
 
 <p>Arch Linux:  </p>
@@ -924,6 +960,15 @@
       </tags>
   </entry>
   <entry>
+    <title>交换心情</title>
+    <url>/diary/swap-feeling/</url>
+    <content><![CDATA[<p>最近有点烦啊。</p>
+]]></content>
+      <categories>
+        <category>diary</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Ubuntu 20启用root账户</title>
     <url>/guide/ubuntu-20-enble-root-user/</url>
     <content><![CDATA[<p>無聊，就是想把root賬戶給打開。</p>
@@ -959,14 +1004,5 @@
         <tag>Ubuntu</tag>
         <tag>root</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>交换心情</title>
-    <url>/diary/swap-feeling/</url>
-    <content><![CDATA[<p>最近有点烦啊。</p>
-]]></content>
-      <categories>
-        <category>diary</category>
-      </categories>
   </entry>
 </search>
