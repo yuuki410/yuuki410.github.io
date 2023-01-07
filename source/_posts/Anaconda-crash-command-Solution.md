@@ -59,7 +59,7 @@ whereis anaconda # anaconda: /opt/anaconda/bin/anaconda
 # Disable it
 sudo chmod 000 /opt/anaconda/
 ```
-
+<!-- more -->
 ### Solution 2
 
 ```bash
@@ -80,4 +80,10 @@ When your try to access the certificates file:
 ~/.cache/yay/anaconda/pkg/anaconda/opt/anaconda/ssl/certs/ca-certificates.crt: No such file or directory
 ```
 
-Solution is same to [Anaconda with `ibus`](#Anaconda-with-ibus).
+> Solution from Stackoverflow:  
+> <https://stackoverflow.com/questions/3160909/how-do-i-deal-with-certificates-using-curl-while-trying-to-access-an-https-url#answer-31060428>  
+> {% asset_img "Screenshot 2023-01-07 at 11-58-17 How do I deal with certificates using cURL while trying to access an HTTPS url.png" %}
+
+```bash
+echo "export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt" >> .zshrc
+```
