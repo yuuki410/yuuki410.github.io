@@ -1,3 +1,4 @@
+https://blog.yuuki.eu.org/guide/Anaconda-crash-command-Solution/
 https://blog.yuuki.eu.org/note/pkg-config-and-libcrypto/
 https://blog.yuuki.eu.org/guide/pm2/
 https://blog.yuuki.eu.org/guide/ubuntu-20-enble-root-user/
@@ -20,7 +21,6 @@ https://blog.yuuki.eu.org/guide/Raspi-VNC-DPI/
 https://blog.yuuki.eu.org/guide/Safely-remove-flash-disk-from-Linux/
 https://blog.yuuki.eu.org/guide/Setup-a-website-with-Raspberry-Pi-4B/
 https://blog.yuuki.eu.org/guide/Wine-GBK-Encoding/
-https://blog.yuuki.eu.org/guide/Anaconda-crash-command-Solution/
 https://blog.yuuki.eu.org/note/Anbox-install-apk/
 https://blog.yuuki.eu.org/note/Arch-Linux/
 https://blog.yuuki.eu.org/note/CSP-S2019-bark/
