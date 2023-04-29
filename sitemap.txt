@@ -2,6 +2,7 @@ https://blog.yuuki.eu.org/about/
 https://blog.yuuki.eu.org/archives/
 https://blog.yuuki.eu.org/categories/
 https://blog.yuuki.eu.org/tags/
+https://blog.yuuki.eu.org/uncategorized/shutdown/
 https://blog.yuuki.eu.org/guide/Insert-your-PGP-Public-Key-Block-when-VIMing/
 https://blog.yuuki.eu.org/guide/Anaconda-crash-command-Solution/
 https://blog.yuuki.eu.org/guide/Wine-GBK-Encoding/

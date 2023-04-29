@@ -6,7 +6,7 @@
   <link href="https://blog.yuuki.eu.org/atom.xml" rel="self"/>
   
   <link href="https://blog.yuuki.eu.org/"/>
-  <updated>2023-01-07T06:45:07.000Z</updated>
+  <updated>2023-04-29T03:00:00.000Z</updated>
   <id>https://blog.yuuki.eu.org/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>隐退</title>
+    <link href="https://blog.yuuki.eu.org/uncategorized/shutdown/"/>
+    <id>https://blog.yuuki.eu.org/uncategorized/shutdown/</id>
+    <published>2023-04-29T03:00:00.000Z</published>
+    <updated>2023-04-29T03:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>嘈杂喧闹的网络世界不再适合我。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;嘈杂喧闹的网络世界不再适合我。&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Insert your PGP Public Key Block when VIMing</title>
@@ -621,36 +642,6 @@
     <category term="Cloudflare" scheme="https://blog.yuuki.eu.org/tags/Cloudflare/"/>
     
     <category term="Cloudflare Tunnel" scheme="https://blog.yuuki.eu.org/tags/Cloudflare-Tunnel/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Raspi VNC连接分辨率调整</title>
-    <link href="https://blog.yuuki.eu.org/guide/Raspi-VNC-DPI/"/>
-    <id>https://blog.yuuki.eu.org/guide/Raspi-VNC-DPI/</id>
-    <published>2021-12-11T10:42:35.000Z</published>
-    <updated>2021-12-11T10:42:35.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>树莓派默认的分辨率是480p……其酸爽程度自行体会……</p><p>ssh连上树莓派，一句话解决分辨率问题：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncserver -geometry 1920x1080</span><br></pre></td></tr></table></figure><p>当然，这么做只能暂时性地解决问题。其原理是启动了另一个VNC Server进程</p><p>一劳永逸的方法是改设置：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/sysconfig/vncservers</span><br></pre></td></tr></table></figure><p>配置文件简明易懂，记得备份好就行。</p><blockquote><p><strong>参考：</strong></p></blockquote><ul><li><a href="https://blog.csdn.net/runningtortoises/article/details/51425332">https://blog.csdn.net/runningtortoises/article/details/51425332</a></li></ul><hr><p>新系统的<code>/etc/sysconfig</code>貌似移动到了别处，可用<code>sudo raspi-config</code> &gt; <code>2 Display Options</code> &gt; <code>D1 Resolution</code>设置分辨率，这会同时应用到显示器和VNC。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;树莓派默认的分辨率是480p……其酸爽程度自行体会……&lt;/p&gt;
-&lt;p&gt;ssh连上树莓派，一句话解决分辨率问题：&lt;/p&gt;
-&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;</summary>
-      
-    
-    
-    
-    <category term="guide" scheme="https://blog.yuuki.eu.org/categories/guide/"/>
-    
-    
-    <category term="Raspberry Pi" scheme="https://blog.yuuki.eu.org/tags/Raspberry-Pi/"/>
-    
-    <category term="VNC" scheme="https://blog.yuuki.eu.org/tags/VNC/"/>
-    
-    <category term="RealVNC" scheme="https://blog.yuuki.eu.org/tags/RealVNC/"/>
     
   </entry>
   
